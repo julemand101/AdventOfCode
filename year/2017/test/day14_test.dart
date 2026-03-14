@@ -1,0 +1,25 @@
+// --- Day 14: Disk Defragmentation ---
+// https://adventofcode.com/2017/day/14
+
+import 'package:test/test.dart';
+import 'package:advent_of_code_2017/day14.dart';
+
+void main() {
+  group('Part One', () {
+    test('Example 1', () {
+      expect(solveA(r'flqrgnkx'), equals(8108));
+    });
+    test('Solution', () {
+      expect(solveA(r'ljoxqyyw'), equals(8316));
+    });
+  });
+
+  group('Part Two', () {
+    test('Example 1', () {
+      expect(solveB(r'flqrgnkx'), equals(1242));
+    });
+    test('Solution', () {
+      expect(solveB(r'ljoxqyyw'), equals(1074));
+    });
+  });
+}
