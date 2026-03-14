@@ -1,7 +1,6 @@
 // --- Day 4: Printing Department ---
 // https://adventofcode.com/2025/day/4
 
-import 'dart:io';
 import 'package:advent_of_code_2025/day04.dart';
 import 'package:advent_of_code/util.dart';
 import 'package:test/test.dart';

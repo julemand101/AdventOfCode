@@ -1,14 +1,11 @@
 name: advent_of_code
 description: Solutions for Advent of Code
 
-publish_to: none
-
 environment:
   sdk: ^3.11.0
 
 workspace:
- - year/2024
- - year/2025
+ - year/*
 
 dependencies:
   collection: ^1.19.0
