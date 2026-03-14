@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
+import 'dart:typed_data';
 
 extension StringAsLinesExtension on String {
   Iterable<String> get asLines => LineSplitter.split(this);
 
   List<String> get asLinesList => asLines.toList(growable: false);
+
+  Uint8List get asBytes => utf8.encode(this);
 }
 
 Uri _baseDirectory = Directory.fromUri(
