@@ -1,0 +1,42 @@
+// --- Day 1: The Tyranny of the Rocket Equation ---
+// https://adventofcode.com/2019/day/1
+
+import 'package:advent_of_code/util.dart';
+import 'package:advent_of_code_2019/day01.dart';
+import 'package:test/test.dart';
+
+final input = getInput(2019, 01).readAsLinesSync();
+
+void main() {
+  group('Part One', () {
+    test('Example 1', () {
+      expect(solveA(const ['12']), equals(2));
+    });
+    test('Example 2', () {
+      expect(solveA(const ['14']), equals(2));
+    });
+    test('Example 3', () {
+      expect(solveA(const ['1969']), equals(654));
+    });
+    test('Example 4', () {
+      expect(solveA(const ['100756']), equals(33583));
+    });
+    test('Solution', () {
+      expect(solveA(input), equals(3152375));
+    });
+  });
+  group('Part Two', () {
+    test('Example 1', () {
+      expect(solveB(const ['14']), equals(2));
+    });
+    test('Example 2', () {
+      expect(solveB(const ['1969']), equals(966));
+    });
+    test('Example 3', () {
+      expect(solveB(const ['100756']), equals(50346));
+    });
+    test('Solution', () {
+      expect(solveB(input), equals(4725720));
+    });
+  });
+}
