@@ -20,8 +20,7 @@ L99
 R14
 L82
 '''
-        .asLines
-        .toList(growable: false);
+        .asLinesList;
 
 void main() {
   group('Part One', () {

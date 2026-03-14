@@ -29,7 +29,7 @@ void main() {
 #S..#.....#...#
 ###############
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(7036),
       );
@@ -56,7 +56,7 @@ void main() {
 #S#.............#
 #################
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(11048),
       );

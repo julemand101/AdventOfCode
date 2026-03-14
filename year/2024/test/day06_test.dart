@@ -24,7 +24,7 @@ void main() {
 #.........
 ......#...
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(41),
       );
@@ -49,7 +49,7 @@ void main() {
 #.........
 ......#...
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(6),
       );

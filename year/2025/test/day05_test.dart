@@ -21,8 +21,7 @@ final example =
 17
 32
 '''
-        .asLines
-        .toList(growable: false);
+        .asLinesList;
 
 void main() {
   group('Part One', () {

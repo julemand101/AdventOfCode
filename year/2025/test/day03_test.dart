@@ -14,8 +14,7 @@ final example =
 234234234234278
 818181911112111
 '''
-        .asLines
-        .toList(growable: false);
+        .asLinesList;
 
 void main() {
   group('Part One', () {

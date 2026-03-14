@@ -30,8 +30,7 @@ final example =
 984,92,344
 425,690,689
 '''
-        .asLines
-        .toList(growable: false);
+        .asLinesList;
 
 void main() {
   group('Part One', () {

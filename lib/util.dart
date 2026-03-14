@@ -5,7 +5,7 @@ import 'dart:isolate';
 extension StringAsLinesExtension on String {
   Iterable<String> get asLines => LineSplitter.split(this);
 
-  List<String> toLinesList() => asLines.toList(growable: false);
+  List<String> get asLinesList => asLines.toList(growable: false);
 }
 
 Uri _baseDirectory = Directory.fromUri(

@@ -26,8 +26,7 @@ final example =
 .^.^.^.^.^...^.
 ...............
 '''
-        .asLines
-        .toList(growable: false);
+        .asLinesList;
 
 void main() {
   group('Part One', () {

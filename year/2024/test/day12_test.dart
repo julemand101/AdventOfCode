@@ -18,7 +18,7 @@ BBCD
 BBCC
 EEEC
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(140),
       );
@@ -33,7 +33,7 @@ OOOOO
 OXOXO
 OOOOO
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(772),
       );
@@ -53,7 +53,7 @@ MIIIIIJJEE
 MIIISIJEEE
 MMMISSJEEE
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(1930),
       );
@@ -72,7 +72,7 @@ BBCD
 BBCC
 EEEC
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(80),
       );
@@ -87,7 +87,7 @@ OOOOO
 OXOXO
 OOOOO
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(436),
       );
@@ -102,7 +102,7 @@ EEEEE
 EXXXX
 EEEEE
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(236),
       );
@@ -118,7 +118,7 @@ ABBAAA
 ABBAAA
 AAAAAA
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(368),
       );
@@ -138,7 +138,7 @@ MIIIIIJJEE
 MIIISIJEEE
 MMMISSJEEE
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(1206),
       );

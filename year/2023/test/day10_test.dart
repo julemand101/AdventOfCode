@@ -19,7 +19,7 @@ void main() {
 .L-J.
 .....
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(4),
       );
@@ -34,7 +34,7 @@ SJ.L7
 |F--J
 LJ...
 '''
-              .toLinesList(),
+              .asLinesList,
         ),
         equals(8),
       );

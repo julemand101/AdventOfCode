@@ -19,7 +19,7 @@ final exampleInput =
 ...$.*....
 .664.598..
 '''
-        .toLinesList();
+        .asLinesList;
 
 void main() {
   group('Part One', () {
