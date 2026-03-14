@@ -5,13 +5,12 @@ import 'dart:math';
 
 typedef FuelCalculator = int Function(int distance);
 
-int solveA(Iterable<String> input) =>
-    solve(input, getFuelUsage: (distance) => distance);
-int solveB(Iterable<String> input) =>
+int solveA(String input) => solve(input, getFuelUsage: (distance) => distance);
+int solveB(String input) =>
     solve(input, getFuelUsage: (distance) => (distance * (distance + 1)) ~/ 2);
 
-int solve(Iterable<String> input, {required FuelCalculator getFuelUsage}) {
-  final numbers = input.first.split(',').map(int.parse).toList(growable: false);
+int solve(String input, {required FuelCalculator getFuelUsage}) {
+  final numbers = input.split(',').map(int.parse).toList(growable: false);
   final maxNumber = numbers.reduce(max);
 
   return Iterable<int>.generate(maxNumber).fold(

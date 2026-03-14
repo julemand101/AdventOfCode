@@ -7,24 +7,25 @@ import 'package:test/test.dart';
 
 final input = getInput(2021, 15).readAsLinesSync();
 
+final example =
+    r'''
+1163751742
+1381373672
+2136511328
+3694931569
+7463417111
+1319128137
+1359912421
+3125421639
+1293138521
+2311944581
+'''
+        .asLinesList;
+
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(
-        solveA(const [
-          '1163751742',
-          '1381373672',
-          '2136511328',
-          '3694931569',
-          '7463417111',
-          '1319128137',
-          '1359912421',
-          '3125421639',
-          '1293138521',
-          '2311944581',
-        ]),
-        equals(40),
-      );
+      expect(solveA(example), equals(40));
     });
     test('Solution', () {
       expect(solveA(input), equals(696));
@@ -32,21 +33,7 @@ void main() {
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(
-        solveB(const [
-          '1163751742',
-          '1381373672',
-          '2136511328',
-          '3694931569',
-          '7463417111',
-          '1319128137',
-          '1359912421',
-          '3125421639',
-          '1293138521',
-          '2311944581',
-        ]),
-        equals(315),
-      );
+      expect(solveB(example), equals(315));
     });
     test('Solution', () {
       expect(solveB(input), equals(2952));

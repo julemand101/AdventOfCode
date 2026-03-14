@@ -6,10 +6,12 @@ import 'package:test/test.dart';
 
 const input = 'target area: x=185..221, y=-122..-74';
 
+const example = 'target area: x=20..30, y=-10..-5';
+
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(solveA('target area: x=20..30, y=-10..-5'), equals(45));
+      expect(solveA(example), equals(45));
     });
     test('Solution', () {
       expect(solveA(input), equals(7381));
@@ -17,7 +19,7 @@ void main() {
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(solveB('target area: x=20..30, y=-10..-5'), equals(112));
+      expect(solveB(example), equals(112));
     });
     test('Solution', () {
       expect(solveB(input), equals(3019));

@@ -5,12 +5,12 @@ import 'package:advent_of_code/util.dart';
 import 'package:advent_of_code_2021/day07.dart';
 import 'package:test/test.dart';
 
-final input = getInput(2021, 07).readAsLinesSync();
+final input = getInput(2021, 07).readAsLinesSync().first;
 
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(solveA(const ['16,1,2,0,4,2,7,1,2,14']), equals(37));
+      expect(solveA('16,1,2,0,4,2,7,1,2,14'), equals(37));
     });
     test('Solution', () {
       expect(solveA(input), equals(351901));
@@ -18,7 +18,7 @@ void main() {
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(solveB(const ['16,1,2,0,4,2,7,1,2,14']), equals(168));
+      expect(solveB('16,1,2,0,4,2,7,1,2,14'), equals(168));
     });
     test('Solution', () {
       expect(solveB(input), equals(101079875));

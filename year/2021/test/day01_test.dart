@@ -7,24 +7,25 @@ import 'package:test/test.dart';
 
 final input = getInput(2021, 01).readAsLinesSync();
 
+final example =
+    r'''
+199
+200
+208
+210
+200
+207
+240
+269
+260
+263
+'''
+        .asLinesList;
+
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(
-        solveA(const [
-          '199',
-          '200',
-          '208',
-          '210',
-          '200',
-          '207',
-          '240',
-          '269',
-          '260',
-          '263',
-        ]),
-        equals(7),
-      );
+      expect(solveA(example), equals(7));
     });
     test('Solution', () {
       expect(solveA(input), equals(1390));
@@ -32,21 +33,7 @@ void main() {
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(
-        solveB(const [
-          '199',
-          '200',
-          '208',
-          '210',
-          '200',
-          '207',
-          '240',
-          '269',
-          '260',
-          '263',
-        ]),
-        equals(5),
-      );
+      expect(solveB(example), equals(5));
     });
     test('Solution', () {
       expect(solveB(input), equals(1457));

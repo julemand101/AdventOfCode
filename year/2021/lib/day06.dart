@@ -1,11 +1,11 @@
 // --- Day 6: Lanternfish ---
 // https://adventofcode.com/2021/day/6
 
-int solveA(Iterable<String> input) => solve(input, simulateDays: 80);
-int solveB(Iterable<String> input) => solve(input, simulateDays: 256);
+int solveA(String input) => solve(input, simulateDays: 80);
+int solveB(String input) => solve(input, simulateDays: 256);
 
-int solve(Iterable<String> input, {required int simulateDays}) {
-  final lanternFishList = input.first.split(',').map(int.parse).fold(
+int solve(String input, {required int simulateDays}) {
+  final lanternFishList = input.split(',').map(int.parse).fold(
     List.filled(9, 0, growable: false),
     (list, daysBeforeNewFish) {
       list[daysBeforeNewFish]++;

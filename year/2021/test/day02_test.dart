@@ -7,20 +7,21 @@ import 'package:test/test.dart';
 
 final input = getInput(2021, 02).readAsLinesSync();
 
+final example =
+    r'''
+forward 5
+down 5
+forward 8
+up 3
+down 8
+forward 2
+'''
+        .asLinesList;
+
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(
-        solveA(const [
-          'forward 5',
-          'down 5',
-          'forward 8',
-          'up 3',
-          'down 8',
-          'forward 2',
-        ]),
-        equals(150),
-      );
+      expect(solveA(example), equals(150));
     });
     test('Solution', () {
       expect(solveA(input), equals(2147104));
@@ -28,17 +29,7 @@ void main() {
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(
-        solveB(const [
-          'forward 5',
-          'down 5',
-          'forward 8',
-          'up 3',
-          'down 8',
-          'forward 2',
-        ]),
-        equals(900),
-      );
+      expect(solveB(example), equals(900));
     });
     test('Solution', () {
       expect(solveB(input), equals(2044620088));

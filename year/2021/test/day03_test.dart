@@ -7,26 +7,27 @@ import 'package:test/test.dart';
 
 final input = getInput(2021, 03).readAsLinesSync();
 
+final example =
+    r'''
+00100
+11110
+10110
+10111
+10101
+01111
+00111
+11100
+10000
+11001
+00010
+01010
+'''
+        .asLinesList;
+
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(
-        solveA(const [
-          '00100',
-          '11110',
-          '10110',
-          '10111',
-          '10101',
-          '01111',
-          '00111',
-          '11100',
-          '10000',
-          '11001',
-          '00010',
-          '01010',
-        ]),
-        equals(198),
-      );
+      expect(solveA(example), equals(198));
     });
     test('Solution', () {
       expect(solveA(input), equals(741950));
@@ -34,23 +35,7 @@ void main() {
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(
-        solveB(const [
-          '00100',
-          '11110',
-          '10110',
-          '10111',
-          '10101',
-          '01111',
-          '00111',
-          '11100',
-          '10000',
-          '11001',
-          '00010',
-          '01010',
-        ]),
-        equals(230),
-      );
+      expect(solveB(example), equals(230));
     });
     test('Solution', () {
       expect(solveB(input), equals(903810));
