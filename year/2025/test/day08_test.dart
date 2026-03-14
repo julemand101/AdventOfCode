@@ -1,0 +1,53 @@
+// --- Day 8: Playground ---
+// https://adventofcode.com/2025/day/8
+
+import 'package:advent_of_code_2025/day08.dart';
+import 'package:advent_of_code/util.dart';
+import 'package:test/test.dart';
+
+final input = getInput(2025, 08).readAsLinesSync();
+
+final example =
+    r'''
+162,817,812
+57,618,57
+906,360,560
+592,479,940
+352,342,300
+466,668,158
+542,29,236
+431,825,988
+739,650,466
+52,470,668
+216,146,977
+819,987,18
+117,168,530
+805,96,715
+346,949,466
+970,615,88
+941,993,340
+862,61,35
+984,92,344
+425,690,689
+'''
+        .asLines
+        .toList(growable: false);
+
+void main() {
+  group('Part One', () {
+    test('Example 1', () {
+      expect(solveA(example, limit: 10), equals(40));
+    });
+    test('Solution', () {
+      expect(solveA(input), equals(47040));
+    });
+  });
+  group('Part Two', () {
+    test('Example 1', () {
+      expect(solveB(example), equals(25272));
+    });
+    test('Solution', () {
+      expect(solveB(input), equals(4884971896));
+    });
+  });
+}
