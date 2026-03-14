@@ -25,10 +25,7 @@ String solveB(List<String> inputs) => solve(
   ],
 );
 
-String solve(
-  List<String> inputs, {
-  required List<List<String>> keypad,
-}) {
+String solve(List<String> inputs, {required List<List<String>> keypad}) {
   int x = 0;
   int y = 0;
 
