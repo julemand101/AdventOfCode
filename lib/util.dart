@@ -12,6 +12,9 @@ Uri _baseDirectory = Directory.fromUri(
   Isolate.resolvePackageUriSync(Uri.parse('package:advent_of_code/'))!,
 ).parent.uri;
 
-File getInput(int year, int day) => File.fromUri(
-  _baseDirectory.resolve('data/$year/day${day.toString().padLeft(2, '0')}.txt'),
+File getInput(int year, int day, {bool example = false}) => File.fromUri(
+  _baseDirectory.resolve(
+    'data/$year/day${day.toString().padLeft(2, '0')}'
+    '${example ? "_example" : ""}.txt',
+  ),
 );
