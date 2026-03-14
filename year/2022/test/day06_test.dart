@@ -5,7 +5,7 @@ import 'package:advent_of_code/util.dart';
 import 'package:advent_of_code_2022/day06.dart';
 import 'package:test/test.dart';
 
-final input = getInput(2022, 06).readAsLinesSync().first;
+final input = getInput(2022, 06).readAsStringSync();
 
 void main() {
   group('Part One', () {
