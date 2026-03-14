@@ -45,54 +45,8 @@ int solveA(List<String> input) {
       continue;
     }
 
-    grid
-        .findOptions(point)
-        .whereNot(pastVisits.contains)
-        .forEach(unsettledPoints.add);
+    unsettledPoints.addAll(grid.findOptions(point));
   }
-
-  return 0;
-}
-
-int solveB(List<String> input) {
-  final grid = Grid(input);
-  final startPosition = PointWithDirection(grid.start, Direction.east);
-  final pastVisits =
-      HashMap<PointWithDirection, ({int cost, Set<PointWithDirection> from})>();
-  final unsettledPoints = PriorityQueue<PointWithDirectionAndCost>(
-    (p1, p2) => p1.cost.compareTo(p2.cost),
-  )..add((point: startPosition, cost: 0));
-
-  while (unsettledPoints.isNotEmpty) {
-    final point = unsettledPoints.removeFirst();
-
-    if (pastVisits[point.point] case final pastPoint?) {
-      if (point.cost < pastPoint.cost) {
-        pastVisits[point.point] = (cost: point.cost, from: {point.point});
-      } else if (point.cost == pastPoint.cost) {
-        pastPoint.from.add(point.point);
-        continue;
-      } else {
-        continue;
-      }
-    } else {
-      pastVisits[point.point] = (cost: point.cost, from: {point.point});
-    }
-
-    // No need to look for more points after we are at the end
-    if (point.point.point == grid.end) {
-      continue;
-    }
-
-    grid
-        .findOptions(point)
-        .whereNot(pastVisits.containsKey)
-        .forEach(unsettledPoints.add);
-  }
-
-  pastVisits.entries
-      .where((entry) => entry.value.from.length > 1)
-      .forEach(print);
 
   return 0;
 }
