@@ -14,7 +14,7 @@ void main() {
     test('Solution', () {
       expect(solveA(input), equals('2414bc77'));
     });
-  }, skip: true);
+  });
   group('Part Two', () {
     test('Example 1', () {
       expect(solveB('abc'), equals('05ace8e3'));
