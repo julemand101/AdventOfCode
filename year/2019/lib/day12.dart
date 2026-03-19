@@ -11,7 +11,7 @@ class Moon {
   Moon(String input) {
     final parsed = _pattern
         .allMatches(input)
-        .map((match) => int.parse(match.group(0)!))
+        .map((match) => int.parse(match[0]!))
         .toList(growable: false);
 
     positionX = parsed[0];

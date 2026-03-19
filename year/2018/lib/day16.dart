@@ -29,20 +29,20 @@ class Sample {
 
     final beforeMatches = _before.allMatches(lines[0]).first;
     before = createRegisters(
-      int.parse(beforeMatches.group(1)!),
-      int.parse(beforeMatches.group(2)!),
-      int.parse(beforeMatches.group(3)!),
-      int.parse(beforeMatches.group(4)!),
+      int.parse(beforeMatches[1]!),
+      int.parse(beforeMatches[2]!),
+      int.parse(beforeMatches[3]!),
+      int.parse(beforeMatches[4]!),
     );
 
     programInstruction = ProgramInstruction(lines[1]);
 
     final afterMatches = _after.allMatches(lines[2]).first;
     after = createRegisters(
-      int.parse(afterMatches.group(1)!),
-      int.parse(afterMatches.group(2)!),
-      int.parse(afterMatches.group(3)!),
-      int.parse(afterMatches.group(4)!),
+      int.parse(afterMatches[1]!),
+      int.parse(afterMatches[2]!),
+      int.parse(afterMatches[3]!),
+      int.parse(afterMatches[4]!),
     );
   }
 }
@@ -54,10 +54,10 @@ class ProgramInstruction {
 
   ProgramInstruction(String line) {
     final instructionMatches = _instruction.allMatches(line).first;
-    op = int.parse(instructionMatches.group(1)!);
-    a = int.parse(instructionMatches.group(2)!);
-    b = int.parse(instructionMatches.group(3)!);
-    c = int.parse(instructionMatches.group(4)!);
+    op = int.parse(instructionMatches[1]!);
+    a = int.parse(instructionMatches[2]!);
+    b = int.parse(instructionMatches[3]!);
+    c = int.parse(instructionMatches[4]!);
   }
 
   void call(List<Register> registers, Instruction instruction) {

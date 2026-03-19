@@ -21,13 +21,14 @@ RegExp regExp = RegExp(
 
 ({Point<int> sensorAtPoint, Point<int> closestBeaconPoint}) parseLine(
   String line,
-) => switch (regExp.firstMatch(line)!.groups([1, 2, 3, 4]).cast<String>()) {
-  [final x1, final y1, final x2, final y2] => (
-    sensorAtPoint: Point(int.parse(x1), int.parse(y1)),
-    closestBeaconPoint: Point(int.parse(x2), int.parse(y2)),
-  ),
-  _ => throw Exception('Could not parse: $line'),
-};
+) {
+  final match = regExp.firstMatch(line)!;
+
+  return (
+    sensorAtPoint: Point(int.parse(match[1]!), int.parse(match[2]!)),
+    closestBeaconPoint: Point(int.parse(match[3]!), int.parse(match[4]!)),
+  );
+}
 
 extension on Point<int> {
   int manhattanDistanceTo(Point<int> otherPoint) =>

@@ -71,10 +71,10 @@ int solve(
       ip = registers[int.parse(line.split(' ')[1])];
     } else {
       final parsed = regEx.firstMatch(line)!;
-      final instructionName = parsed.group(1)!;
-      final a = int.parse(parsed.group(2)!);
-      final b = int.parse(parsed.group(3)!);
-      final c = int.parse(parsed.group(4)!);
+      final instructionName = parsed[1]!;
+      final a = int.parse(parsed[2]!);
+      final b = int.parse(parsed[3]!);
+      final c = int.parse(parsed[4]!);
 
       codeLines.add(CodeLine(instructionName, a, b, c));
     }

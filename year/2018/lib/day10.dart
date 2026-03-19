@@ -19,10 +19,10 @@ class Point {
   factory Point.fromLine(String line) {
     final matches = _exp.firstMatch(line)!;
 
-    final x = int.parse(matches.group(1)!);
-    final y = int.parse(matches.group(2)!);
-    final velocityX = int.parse(matches.group(3)!);
-    final velocityY = int.parse(matches.group(4)!);
+    final x = int.parse(matches[1]!);
+    final y = int.parse(matches[2]!);
+    final velocityX = int.parse(matches[3]!);
+    final velocityY = int.parse(matches[4]!);
 
     return Point(x, y, velocityX, velocityY);
   }

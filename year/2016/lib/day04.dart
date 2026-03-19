@@ -8,12 +8,9 @@ int solveB(Iterable<String> input) => solve(input, findB: true);
 RegExp linePattern = RegExp(r'(.+)-(\d+)\[(.+)]');
 
 ({String encryptedName, int id, String hash}) parseLine(String line) {
-  final [name!, id!, hash!] = linePattern.firstMatch(line)!.groups(const [
-    1,
-    2,
-    3,
-  ]);
-  return (encryptedName: name, id: int.parse(id), hash: hash);
+  final match = linePattern.firstMatch(line)!;
+
+  return (encryptedName: match[1]!, id: int.parse(match[2]!), hash: match[3]!);
 }
 
 int solve(Iterable<String> input, {required bool findB}) {

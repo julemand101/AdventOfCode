@@ -85,7 +85,7 @@ Iterable<Guard> _parseInput(List<String> input) {
 
   for (final line in sortedInput) {
     if (line.contains('Guard')) {
-      final id = int.parse(exp.firstMatch(line)!.group(1)!);
+      final id = int.parse(exp.firstMatch(line)![1]!);
       currentGuard = guardMap.putIfAbsent(id, () => Guard(id));
     } else if (line.endsWith('falls asleep')) {
       currentGuard.beginSleep(_getTime(line));

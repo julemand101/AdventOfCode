@@ -98,8 +98,8 @@ List<Step> _getSteps(List<String> input) {
 
   for (final line in input) {
     final matches = _exp.firstMatch(line)!;
-    final aId = matches.group(1)!;
-    final bId = matches.group(2)!;
+    final aId = matches[1]!;
+    final bId = matches[2]!;
 
     final aStep = cache.putIfAbsent(aId, () => Step(aId));
     final bStep = cache.putIfAbsent(bId, () => Step(bId));

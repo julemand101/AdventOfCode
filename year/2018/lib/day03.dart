@@ -21,11 +21,11 @@ class Claim {
     final matches = _exp.firstMatch(input)!;
 
     return Claim._(
-      id: int.parse(matches.group(1)!),
-      x: int.parse(matches.group(2)!),
-      y: int.parse(matches.group(3)!),
-      wide: int.parse(matches.group(4)!),
-      tall: int.parse(matches.group(5)!),
+      id: int.parse(matches[1]!),
+      x: int.parse(matches[2]!),
+      y: int.parse(matches[3]!),
+      wide: int.parse(matches[4]!),
+      tall: int.parse(matches[5]!),
     );
   }
 }

@@ -10,6 +10,7 @@ const costAButton = 3;
 const costBButton = 1;
 
 int solveA(Iterable<String> input) => solve(input, partB: false);
+
 int solveB(Iterable<String> input) => solve(input, partB: true);
 
 int solve(Iterable<String> input, {required bool partB}) {
@@ -19,24 +20,17 @@ int solve(Iterable<String> input, {required bool partB}) {
       in input
           .where((line) => line.isNotEmpty)
           .splitBefore((line) => line.startsWith('Button A:'))) {
-    final [ax, ay] = [
-      ...buttonRegExp
-          .firstMatch(chunk[0])!
-          .groups(const [1, 2])
-          .map((s) => int.parse(s!)),
-    ];
-    final [bx, by] = [
-      ...buttonRegExp
-          .firstMatch(chunk[1])!
-          .groups(const [1, 2])
-          .map((s) => int.parse(s!)),
-    ];
-    final [px, py] = [
-      ...prizeRegExp
-          .firstMatch(chunk[2])!
-          .groups(const [1, 2])
-          .map((s) => int.parse(s!) + (partB ? 10000000000000 : 0)),
-    ];
+    final buttonA = buttonRegExp.firstMatch(chunk[0])!;
+    final ax = int.parse(buttonA[1]!);
+    final ay = int.parse(buttonA[2]!);
+
+    final buttonB = buttonRegExp.firstMatch(chunk[1])!;
+    final bx = int.parse(buttonB[1]!);
+    final by = int.parse(buttonB[2]!);
+
+    final prize = prizeRegExp.firstMatch(chunk[2])!;
+    final px = int.parse(prize[1]!) + (partB ? 10000000000000 : 0);
+    final py = int.parse(prize[2]!) + (partB ? 10000000000000 : 0);
 
     final aButton = ((by * px) - (bx * py)) / ((ax * by) - (ay * bx));
     final bButton = ((ax * py) - (ay * px)) / ((ax * by) - (ay * bx));

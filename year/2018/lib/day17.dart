@@ -34,10 +34,10 @@ class Grid {
 
     for (final line in lines) {
       final match = regEx.firstMatch(line)!;
-      final singleLetter = match.group(1)!; // x or y
-      final singleCoordinate = int.parse(match.group(2)!);
-      final rangeFrom = int.parse(match.group(4)!);
-      final rangeTo = int.parse(match.group(5)!);
+      final singleLetter = match[1]!; // x or y
+      final singleCoordinate = int.parse(match[2]!);
+      final rangeFrom = int.parse(match[4]!);
+      final rangeTo = int.parse(match[5]!);
 
       if (singleLetter == 'x') {
         for (var y = rangeFrom; y <= rangeTo; y++) {

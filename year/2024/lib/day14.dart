@@ -82,14 +82,12 @@ class Robot {
   Robot._({required this.position, required this.velocity});
 
   factory Robot(String line) {
-    final [px, py, vx, vy] = [
-      ...robotRegExp
-          .firstMatch(line)!
-          .groups([1, 2, 3, 4])
-          .map((s) => int.parse(s!)),
-    ];
+    final match = robotRegExp.firstMatch(line)!;
 
-    return Robot._(position: Point(px, py), velocity: Point(vx, vy));
+    return Robot._(
+      position: Point(int.parse(match[1]!), int.parse(match[2]!)),
+      velocity: Point(int.parse(match[3]!), int.parse(match[4]!)),
+    );
   }
 
   void move({required int wide, required int tall}) {
@@ -101,6 +99,7 @@ extension type const Point._(({int x, int y}) _point) {
   const Point(int x, int y) : this._((x: x, y: y));
 
   int get x => _point.x;
+
   int get y => _point.y;
 
   Point operator +(Point other) => Point(x + other.x, y + other.y);

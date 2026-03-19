@@ -14,8 +14,8 @@ int solveA(Iterable<String> input) {
       continue;
     }
 
-    final [from, left, right] = regExp.firstMatch(line)!.groups([1, 2, 3]);
-    network[from!] = (left: left!, right: right!);
+    final match = regExp.firstMatch(line)!;
+    network[match[1]!] = (left: match[2]!, right: match[3]!);
   }
   instructions!;
 
@@ -46,8 +46,8 @@ int solveB(Iterable<String> input) {
       continue;
     }
 
-    final [from, left, right] = regExp.firstMatch(line)!.groups([1, 2, 3]);
-    network[from!] = (left: left!, right: right!);
+    final match = regExp.firstMatch(line)!;
+    network[match[1]!] = (left: match[2]!, right: match[3]!);
   }
   instructions!;
 

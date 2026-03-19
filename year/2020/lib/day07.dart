@@ -13,12 +13,12 @@ int solveA(Iterable<String> input) {
   for (final line in input) {
     if (!regExpNoOtherBags.hasMatch(line)) {
       final match = regExp.firstMatch(line)!;
-      final bag = match.group(1)!;
-      final subBags = match.group(2)!.split(', ');
+      final bag = match[1]!;
+      final subBags = match[2]!.split(', ');
 
       for (final subBag in subBags) {
         final subMatch = regExpSubBag.firstMatch(subBag)!;
-        final bagColor = subMatch.group(2)!;
+        final bagColor = subMatch[2]!;
         bagMap.update(bagColor, (set) => set..add(bag), ifAbsent: () => {bag});
       }
     }
@@ -49,16 +49,16 @@ int solveB(Iterable<String> input) {
     final noOtherBagsMatch = regExpNoOtherBags.firstMatch(line);
 
     if (noOtherBagsMatch != null) {
-      bagMap[noOtherBagsMatch.group(1)!] = const {};
+      bagMap[noOtherBagsMatch[1]!] = const {};
     } else {
       final match = regExp.firstMatch(line)!;
-      final bagColor = match.group(1)!;
-      final subBags = match.group(2)!.split(', ');
+      final bagColor = match[1]!;
+      final subBags = match[2]!.split(', ');
 
       for (final subBag in subBags) {
         final subBagMatch = regExpSubBag.firstMatch(subBag)!;
-        final subBagCount = int.parse(subBagMatch.group(1)!);
-        final subBagColor = subBagMatch.group(2)!;
+        final subBagCount = int.parse(subBagMatch[1]!);
+        final subBagColor = subBagMatch[2]!;
 
         if (bagMap.containsKey(bagColor)) {
           final map = bagMap[bagColor]!;
