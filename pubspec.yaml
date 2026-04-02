@@ -18,6 +18,7 @@ workspace:
  - year/2025
 
 dependencies:
+  any_base: ^2.0.0
   crypto: ^3.0.0
   collection: ^1.19.0
 
