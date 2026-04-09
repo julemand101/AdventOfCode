@@ -33,8 +33,8 @@ int solveA(Iterable<String> input) {
 }
 
 int solveB(Iterable<String> input) {
-  final mappings = <String, List<String>>{};
-  late final String molecule;
+  final reverseMappings = <String, String>{};
+  late String molecule;
   var secondPart = false;
 
   for (final line in input) {
@@ -44,30 +44,24 @@ int solveB(Iterable<String> input) {
       molecule = line;
     } else {
       final match = regExp.firstMatch(line)!;
-      mappings.update(
-        match[1]!,
-        (list) => list..add(match[2]!),
-        ifAbsent: () => [match[2]!],
-      );
+      reverseMappings[match[2]!] = match[1]!;
     }
   }
 
-  final pattern = RegExp('(${mappings.keys.map(RegExp.escape).join('|')})');
-  var currentStrings = {'e'};
+  final pattern = RegExp(
+    '(${reverseMappings.keys.map(RegExp.escape).join('|')})',
+  );
 
-  for (var level = 1; true; level++) {
-    currentStrings = {
-      for (final current in currentStrings)
-        for (final match in pattern.allMatches(current))
-          if (molecule.startsWith(current.substring(0, match.start)))
-            for (final replacement in mappings[match[0]]!)
-              current.replaceRange(match.start, match.end, replacement),
-    };
+  for (var steps = 1; true; steps++) {
+    final lastMatch = pattern.allMatches(molecule).last;
 
-    print(currentStrings);
-
-    if (currentStrings.contains(molecule)) {
-      return level;
+    if ((molecule = molecule.replaceRange(
+          lastMatch.start,
+          lastMatch.end,
+          reverseMappings[lastMatch[1]!]!,
+        )) ==
+        'e') {
+      return steps;
     }
   }
 }

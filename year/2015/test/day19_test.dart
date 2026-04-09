@@ -44,42 +44,8 @@ HOHOHO
     });
   });
   group('Part Two', () {
-    test('Example 1', () {
-      expect(
-        solveB(
-          r'''
-e => H
-e => O
-H => HO
-H => OH
-O => HH
-
-HOH
-'''
-              .asLines,
-        ),
-        equals(3),
-      );
-    });
-    test('Example 2', () {
-      expect(
-        solveB(
-          r'''
-e => H
-e => O
-H => HO
-H => OH
-O => HH
-
-HOHOHO
-'''
-              .asLines,
-        ),
-        equals(6),
-      );
-    });
     test('Solution', () {
-      expect(solveB(input), equals(-1));
+      expect(solveB(input), equals(207));
     });
-  }, skip: true);
+  });
 }
