@@ -95,7 +95,7 @@ Iterable<Build> get builds sync* {
     }
 
     for (final (i, ring1) in rings.indexed) {
-      for (final ring2 in rings.skip(i).where((ring) => ring != ring1)) {
+      for (final ring2 in rings.skip(i + 1)) {
         yield (weapon: weapon, armor: null, ring1: ring1, ring2: ring2);
       }
     }
@@ -108,7 +108,7 @@ Iterable<Build> get builds sync* {
       }
 
       for (final (i, ring1) in rings.indexed) {
-        for (final ring2 in rings.skip(i).where((ring) => ring != ring1)) {
+        for (final ring2 in rings.skip(i + 1)) {
           yield (weapon: weapon, armor: armor, ring1: ring1, ring2: ring2);
         }
       }
