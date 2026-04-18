@@ -21,6 +21,7 @@ dependencies:
   any_base: ^2.0.0
   crypto: ^3.0.0
   collection: ^1.19.0
+  trotter: ^2.2.0
 
 dev_dependencies:
   lints: ^6.1.0

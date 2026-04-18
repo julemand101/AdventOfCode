@@ -10,6 +10,7 @@ dependencies:
   any_base:
   crypto:
   collection:
+  trotter:
 
 dev_dependencies:
   advent_of_code:
