@@ -12,7 +12,8 @@ extension StringAsLinesExtension on String {
 }
 
 Uri _baseDirectory = Directory.fromUri(
-  Isolate.resolvePackageUriSync(Uri.parse('package:advent_of_code/'))!,
+  Isolate.resolvePackageUriSync(Uri.parse('package:advent_of_code/')) ??
+      Uri.file(Platform.resolvedExecutable).resolve('../../'),
 ).parent.uri;
 
 File getInput(int year, int day, {bool example = false}) => File.fromUri(
