@@ -9,14 +9,12 @@ void main(List<String> args) {
 
   if (args.length == 1) {
     // Create based on current date
-    final today = DateTime.now();
-    year = today.year;
-    day = today.day;
+    DateTime(:year, :day) = DateTime.now();
     dayTitle = args[0];
 
     if (Directory(
       'year/',
-    ).listSync().none((dir) => dir.path.endsWith(today.year.toString()))) {
+    ).listSync().none((dir) => dir.path.endsWith(year.toString()))) {
       print('Project directory for year $year have yet to be created!');
       return;
     }
