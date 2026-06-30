@@ -13,9 +13,9 @@ extension on Point {
   Point get right => ($1 + 1, $2);
 }
 
-(Point, HashSet<Point>) parse(List<String> input) {
+(Point, Set<Point>) parse(List<String> input) {
   late final Point startPoint;
-  final splitters = HashSet<Point>();
+  final splitters = <Point>{};
 
   for (final (y, line) in input.indexed) {
     for (var x = 0; x < line.length; x++) {
@@ -38,7 +38,7 @@ int solveA(List<String> input) {
   var beams = {startPoint.down};
 
   for (var i = 1; i < input.length - 1; i++) {
-    final newBeams = HashSet<Point>();
+    final newBeams = <Point>{};
 
     for (final beam in beams) {
       final down = beam.down;
@@ -60,7 +60,7 @@ int solveA(List<String> input) {
 
 int solveB(List<String> input) {
   final (startPoint, splitters) = parse(input);
-  Map<Point, int> cache = HashMap();
+  Map<Point, int> cache = {};
 
   int beam(int splits, Point pos) {
     final down = pos.down;

@@ -1,7 +1,6 @@
 // --- Day 22: Reactor Reboot ---
 // https://adventofcode.com/2021/day/22
 
-import 'dart:collection';
 import 'dart:math';
 
 class Box {
@@ -133,7 +132,7 @@ class Point3d {
 int solveA(Iterable<String> input) {
   // on x=-20..26,y=-36..17,z=-47..7
   final lineRegExp = RegExp(r'(on|off) x=(.+),y=(.+),z=(.+)');
-  final spaceSet = HashSet<Point3d>();
+  final spaceSet = <Point3d>{};
 
   for (final line in input) {
     final match = lineRegExp.firstMatch(line)!;

@@ -15,7 +15,7 @@ int solve(List<String> input, {required bool partB}) {
   final maxY = input.length;
 
   final antennas = <String, List<Point>>{};
-  final antinodes = HashSet<Point>();
+  final antinodes = <Point>{};
 
   bool addAntinode(Point point) {
     if (point.x >= 0 && point.x < maxX && point.y >= 0 && point.y < maxY) {

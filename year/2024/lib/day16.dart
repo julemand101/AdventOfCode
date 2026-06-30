@@ -29,7 +29,7 @@ enum Direction {
 int solveA(List<String> input) {
   final grid = Grid(input);
   final startPosition = PointWithDirection(grid.start, Direction.east);
-  final pastVisits = HashSet<PointWithDirection>();
+  final pastVisits = <PointWithDirection>{};
   final unsettledPoints = PriorityQueue<PointWithDirectionAndCost>(
     (p1, p2) => p1.cost.compareTo(p2.cost),
   )..add((point: startPosition, cost: 0));

@@ -1,20 +1,18 @@
 // --- Day 11: Plutonian Pebbles ---
 // https://adventofcode.com/2024/day/11
 
-import 'dart:collection';
-
 import 'package:collection/collection.dart';
 
 int solveA(String input, {int blink = 25}) => solve(input, blink: blink);
 int solveB(String input) => solve(input, blink: 75);
 
 int solve(String input, {int blink = 25}) {
-  var currentStones = HashMap<int, int>();
+  var currentStones = <int, int>{};
   for (final stone in input.split(' ')) {
     currentStones.update(int.parse(stone), (v) => v + 1, ifAbsent: () => 1);
   }
 
-  var nextStones = HashMap<int, int>();
+  var nextStones = <int, int>{};
   for (var i = 0; i < blink; i++) {
     for (final MapEntry(key: stone, value: amount) in currentStones.entries) {
       void addNextStone(int stone) =>

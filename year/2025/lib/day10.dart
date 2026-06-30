@@ -35,7 +35,7 @@ int solveA(Iterable<String> input) {
 
   for (final (targetLightConfiguration, wiringSchematics, _) in parse(input)) {
     // Set over configurations we have already visited and can be skipped
-    final cacheSet = HashSet<List<bool>>(
+    final cacheSet = LinkedHashSet<List<bool>>(
       equals: compareBoolLists,
       hashCode: (e) => Object.hashAll(e),
     );

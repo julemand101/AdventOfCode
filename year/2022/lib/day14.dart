@@ -1,14 +1,13 @@
 // --- Day 14: Regolith Reservoir ---
 // https://adventofcode.com/2022/day/14
 
-import 'dart:collection';
 import 'dart:math';
 
 int solveA(Iterable<String> input) {
   // A point might be filled with either a rock or sand. In the beginning, we
   // only have rocks. Since we later need to only count the sand, we keep a
   // count of how many rocks there are so we can subtract that later.
-  final HashSet<Point<int>> filledPoints = parseRocks(input);
+  final Set<Point<int>> filledPoints = parseRocks(input);
   final int numberOfRocks = filledPoints.length;
   final int bottomY = filledPoints.reduce((a, b) => a.y > b.y ? a : b).y;
   const sandSpawnPoint = Point<int>(500, 0);
@@ -43,7 +42,7 @@ int solveA(Iterable<String> input) {
 }
 
 int solveB(Iterable<String> input) {
-  final HashSet<Point<int>> filledPoints = parseRocks(input);
+  final Set<Point<int>> filledPoints = parseRocks(input);
   final int numberOfRocks = filledPoints.length;
   final int bottomY = filledPoints.reduce((a, b) => a.y > b.y ? a : b).y + 2;
   const sandSpawnPoint = Point<int>(500, 0);
@@ -76,8 +75,8 @@ int solveB(Iterable<String> input) {
   return filledPoints.length - numberOfRocks;
 }
 
-HashSet<Point<int>> parseRocks(Iterable<String> input) {
-  final HashSet<Point<int>> rockPoints = HashSet();
+Set<Point<int>> parseRocks(Iterable<String> input) {
+  final Set<Point<int>> rockPoints = {};
 
   for (final pathToDraw in input.map((e) => e.split(' -> ').map(parsePoint))) {
     int? prevX;

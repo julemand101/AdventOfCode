@@ -1,7 +1,6 @@
 // --- Day 21: Dirac Dice ---
 // https://adventofcode.com/2021/day/21
 
-import 'dart:collection';
 import 'dart:math';
 
 class Dice {
@@ -65,7 +64,7 @@ int solveB({
   required int player2StartingPosition,
 }) {
   final outcome = nextStep(
-    outcomeCache: HashMap<int, Outcome>(),
+    outcomeCache: <int, Outcome>{},
     player1Position: PlayerPosition(startPosition: player1StartingPosition),
     player2Position: PlayerPosition(startPosition: player2StartingPosition),
   );

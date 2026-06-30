@@ -44,7 +44,7 @@ Future<int> solveB(List<String> input) async {
 
           // Point and direction set.
           // If we detect the same combo, we are in a loop
-          final loopDetect = HashSet<(Point, int)>();
+          final loopDetect = <(Point, int)>{};
           var guardPosition = grid.guardStartingPoint;
           var direction = 0;
 
@@ -83,7 +83,7 @@ Future<int> solveB(List<String> input) async {
   List<String> input,
 ) {
   final grid = Grid(input.first.length, input.length)..setFromInput(input);
-  final distinctPositions = HashSet<Point>();
+  final distinctPositions = <Point>{};
 
   var guardPosition = grid.guardStartingPoint;
   var direction = 0;

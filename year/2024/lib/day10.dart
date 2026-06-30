@@ -16,7 +16,7 @@ int solve(List<String> input, {required bool partB}) {
   return grid.zeroPositions
       .map(
         (startingPosition) =>
-            reachTop(grid, startingPosition, 0, partB ? null : HashSet()),
+            reachTop(grid, startingPosition, 0, partB ? null : {}),
       )
       .sum;
 }

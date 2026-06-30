@@ -10,7 +10,7 @@ int solveB(List<String> input) => solve(input, partB: true);
 int solve(List<String> input, {required bool partB}) {
   final grid = Grid(input);
   final todoQueue = Queue<Point>()..add(Point(0, 0));
-  final pointsAlreadyPartOfGroupSet = HashSet<Point>();
+  final pointsAlreadyPartOfGroupSet = <Point>{};
   var sum = 0;
 
   while (todoQueue.isNotEmpty) {
