@@ -1,64 +1,51 @@
 // --- Day 14: One-Time Pad ---
 // https://adventofcode.com/2016/day/14
 
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 
-int solveA(String input) {
-  var hashCache = <String, String>{};
+int solveA(String input) =>
+    solve(input, (i) => md5.convert(ascii.encode('$input$i')).toString());
 
-  String getHash(String input) => hashCache.putIfAbsent(
-    input,
-    () => md5.convert(ascii.encode(input)).toString(),
-  );
+int solveB(String input) => solve(input, (i) {
+  var hash = md5.convert(ascii.encode('$input$i')).toString();
 
-  var key = 0;
-
-  loop:
-  for (var i = 0; true; i++) {
-    if (check1(getHash('$input$i')) case final charCode?) {
-      for (var k = 1; k <= 1000; k++) {
-        if (check2(getHash('$input${i + k}'), charCode)) {
-          if (++key == 64) {
-            return i;
-          } else {
-            continue loop;
-          }
-        }
-      }
-    }
+  for (var i = 0; i < 2016; i++) {
+    hash = md5.convert(ascii.encode(hash)).toString();
   }
-}
 
-int solveB(String input) {
-  var hashCache = <String, String>{};
+  return hash;
+});
 
-  String getHash(String input) => hashCache.putIfAbsent(input, () {
-    var hash = md5.convert(ascii.encode(input)).toString();
+int solve(String input, String Function(int i) createHash) {
+  var hashQueue = ListQueue<String>(1001);
 
-    for (var i = 0; i < 2016; i++) {
-      hash = md5.convert(ascii.encode(hash)).toString();
-    }
+  // Prefill cache
+  for (var i = 0; i <= 1000; i++) {
+    hashQueue.add(createHash(i));
+  }
 
-    return hash;
-  });
+  String getHash(int index) => hashQueue.elementAt(index);
 
   var key = 0;
 
-  loop:
   for (var i = 0; true; i++) {
-    if (check1(getHash('$input$i')) case final charCode?) {
+    if (check1(getHash(0)) case final charCode?) {
       for (var k = 1; k <= 1000; k++) {
-        if (check2(getHash('$input${i + k}'), charCode)) {
+        if (check2(getHash(k), charCode)) {
           if (++key == 64) {
             return i;
           } else {
-            continue loop;
+            break;
           }
         }
       }
     }
+    hashQueue
+      ..removeFirst()
+      ..add(createHash(i + 1001));
   }
 }
 
