@@ -22,14 +22,19 @@ move position 3 to position 0
 rotate based on position of letter b
 rotate based on position of letter d
 '''
-              .asLines,
+              .asLinesList,
           scrambleInput: r'abcde',
         ),
         equals(r'decab'),
       );
     });
     test('Solution', () {
-      expect(solveA(input, scrambleInput: r'abcdefgh'), equals('bfheacgd'));
+      expect(solveA(input, scrambleInput: r'abcdefgh'), equals(r'bfheacgd'));
+    });
+  });
+  group('Part Two', () {
+    test('Solution', () {
+      expect(solveB(input, scrambleInput: r'fbgdceah'), equals(r'gcehdbfa'));
     });
   });
 }

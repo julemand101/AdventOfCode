@@ -9,6 +9,7 @@ resolution: workspace
 dependencies:
   crypto:
   collection:
+  trotter:
 
 dev_dependencies:
   advent_of_code:

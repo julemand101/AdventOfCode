@@ -2,6 +2,7 @@
 // https://adventofcode.com/2016/day/21
 
 import 'package:collection/collection.dart';
+import 'package:trotter/trotter.dart';
 
 final swapPositionRegExp = RegExp(r'^swap position (\d+) with position (\d+)$');
 final swapLetterRegExp = RegExp(r'^swap letter ([a-z]) with letter ([a-z])$');
@@ -10,7 +11,7 @@ final rotBasedRegExp = RegExp(r'^rotate based on position of letter ([a-z])$');
 final revPositionsRegExp = RegExp(r'^reverse positions (\d+) through (\d+)$');
 final movePositionRegExp = RegExp(r'^move position (\d+) to position (\d+)$');
 
-String solveA(Iterable<String> input, {required String scrambleInput}) {
+String solveA(List<String> input, {required String scrambleInput}) {
   final letters = scrambleInput.split('');
 
   for (final line in input) {
@@ -73,4 +74,19 @@ String solveA(Iterable<String> input, {required String scrambleInput}) {
   }
 
   return letters.join();
+}
+
+String solveB(List<String> input, {required String scrambleInput}) {
+  for (final permutation in Permutations(
+    scrambleInput.length,
+    characters(scrambleInput),
+  )()) {
+    final password = permutation.join();
+
+    if (solveA(input, scrambleInput: password) == scrambleInput) {
+      return password;
+    }
+  }
+
+  throw 'Failed finding answer';
 }
