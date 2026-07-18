@@ -19,3 +19,21 @@ int solveA(Iterable<String> input) {
 
   return currentMinimum;
 }
+
+int solveB(Iterable<String> input, {int validValuesLength = 4294967295}) {
+  final boolList = BoolList(validValuesLength + 1);
+
+  for (final [from, to] in input.map((line) => line.split('-'))) {
+    boolList.fillRange(int.parse(from), int.parse(to) + 1, true);
+  }
+
+  var count = 0;
+
+  for (var i = 0; i < boolList.length; i++) {
+    if (!boolList[i]) {
+      count++;
+    }
+  }
+
+  return count;
+}

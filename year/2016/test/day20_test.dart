@@ -26,4 +26,23 @@ void main() {
       expect(solveA(input), equals(23923783));
     });
   });
+  group('Part Two', () {
+    test('Example 1', () {
+      expect(
+        solveB(
+          r'''
+5-8
+0-2
+4-7
+'''
+              .asLines,
+          validValuesLength: 9,
+        ),
+        equals(2),
+      );
+    });
+    test('Solution', () {
+      expect(solveB(input), equals(125));
+    });
+  });
 }
