@@ -28,3 +28,11 @@ int solveA(int input) {
 
   return currentElf.id;
 }
+
+int solveB(int target) {
+  var i = 1;
+  while (i * 3 < target) {
+    i *= 3;
+  }
+  return target - i;
+}

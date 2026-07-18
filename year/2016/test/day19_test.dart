@@ -13,4 +13,12 @@ void main() {
       expect(solveA(3005290), equals(1816277));
     });
   });
+  group('Part Two', () {
+    test('Example 1', () {
+      expect(solveB(5), equals(2));
+    });
+    test('Solution', () {
+      expect(solveB(3005290), equals(1410967));
+    });
+  });
 }
