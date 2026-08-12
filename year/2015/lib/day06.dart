@@ -65,12 +65,8 @@ Grid solve(
   return grid;
 }
 
-class Grid {
-  final int xSize;
-  final int ySize;
-  final Uint8List list;
-
-  Grid(this.xSize, this.ySize) : list = Uint8List(xSize * ySize);
+class Grid(final int xSize, final int ySize) {
+  final Uint8List list = Uint8List(xSize * ySize);
 
   int get(int x, int y) => list[_listIndexOf(x, y)];
 

@@ -40,13 +40,8 @@ int solve(List<String> input, {required int steps, required bool partB}) {
   return count;
 }
 
-class Grid {
-  final int xSize;
-  final int ySize;
-  final Uint8List list;
-  final bool partB;
-
-  Grid(this.xSize, this.ySize, this.partB) : list = Uint8List(xSize * ySize);
+class Grid(final int xSize, final int ySize, final bool partB) {
+  final Uint8List list = Uint8List(xSize * ySize);
 
   bool get(int x, int y) {
     // Simulate stuck on corners

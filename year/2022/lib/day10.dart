@@ -13,26 +13,27 @@ int solveA(Iterable<String> input) =>
     );
 
 String solveB(Iterable<String> input) =>
-    runProgramAndGetRegisterXEachCycle(input).skip(1).take(240).foldIndexed(
-      StringBuffer(),
-      (cpuCycle, image, registerX) {
-        int cathodePosition = cpuCycle % 40;
+    runProgramAndGetRegisterXEachCycle(input)
+        .skip(1)
+        .take(240)
+        .foldIndexed(StringBuffer(), (cpuCycle, image, registerX) {
+          int cathodePosition = cpuCycle % 40;
 
-        // Changed the layout to use `##`/` ` instead of `#`/` ` because it
-        // makes the output a lot easier to read. Test code is changed to this
-        // format as well.
-        String value =
-            (cathodePosition == registerX - 1) ||
-                (cathodePosition == registerX) ||
-                (cathodePosition == registerX + 1)
-            ? '##'
-            : '  ';
+          // Changed the layout to use `##`/` ` instead of `#`/` ` because it
+          // makes the output a lot easier to read. Test code is changed to this
+          // format as well.
+          String value =
+              (cathodePosition == registerX - 1) ||
+                  (cathodePosition == registerX) ||
+                  (cathodePosition == registerX + 1)
+              ? '##'
+              : '  ';
 
-        return ((cpuCycle + 1) % 40 == 0)
-            ? (image..writeln(value))
-            : (image..write(value));
-      },
-    ).toString();
+          return ((cpuCycle + 1) % 40 == 0)
+              ? (image..writeln(value))
+              : (image..write(value));
+        })
+        .toString();
 
 Iterable<int> runProgramAndGetRegisterXEachCycle(Iterable<String> input) sync* {
   int registerX = 1;

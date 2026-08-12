@@ -58,9 +58,9 @@ class Point {
 
   const Point(this.dimensions);
 
-  Iterable<Point> get neighbours => combinations(
-    dimensions.toList(growable: false),
-  ).where((point) => point != this);
+  Iterable<Point> get neighbours =>
+      combinations(dimensions.toList(growable: false))
+          .where((point) => point != this);
 
   Iterable<Point> combinations(List<int> input, [int i = 0]) sync* {
     if (i == input.length) {

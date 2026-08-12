@@ -19,9 +19,11 @@ void main() {
     });
     test('Example 2', () {
       expect(
-        IntcodeComputer.fromString(
-          '1102,34915192,34915192,7,4,7,99,0',
-        ).compute().first.toString().length,
+        IntcodeComputer.fromString('1102,34915192,34915192,7,4,7,99,0')
+            .compute()
+            .first
+            .toString()
+            .length,
         equals(16),
       );
     });

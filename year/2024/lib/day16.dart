@@ -64,7 +64,7 @@ extension type const Point._(({int x, int y}) _point) {
 }
 
 extension type const PointWithDirection._(
-  ({Point point, Direction direction}) _point
+  ({Point point, Direction direction}) _point,
 ) {
   const PointWithDirection(Point point, Direction direction)
     : this._((point: point, direction: direction));

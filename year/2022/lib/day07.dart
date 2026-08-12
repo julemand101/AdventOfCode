@@ -1,10 +1,11 @@
 // --- Day 7: No Space Left On Device ---
 // https://adventofcode.com/2022/day/7
 
-int solveA(Iterable<String> input) => makeAoCFileSystem(input).values
-    .map((e) => e.size)
-    .where((size) => size <= 100000)
-    .reduce((a, b) => a + b);
+int solveA(Iterable<String> input) =>
+    makeAoCFileSystem(input).values
+        .map((e) => e.size)
+        .where((size) => size <= 100000)
+        .reduce((a, b) => a + b);
 
 int solveB(Iterable<String> input) {
   final Map<String, AoCDirectory> aoCFileSystem = makeAoCFileSystem(input);

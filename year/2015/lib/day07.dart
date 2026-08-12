@@ -89,87 +89,66 @@ abstract class Reference {
   }
 }
 
-class ConstantReference implements Reference {
-  @override
-  final int value;
+class ConstantReference(@override final int value) implements Reference;
 
-  ConstantReference(this.value);
-}
-
-class VariableReference implements Reference {
-  final Map<String, Instruction> instructionMap;
-  final String key;
-
-  VariableReference(this.instructionMap, this.key);
-
+class VariableReference(
+  final Map<String, Instruction> instructionMap,
+  final String key,
+) implements Reference {
   @override
   int get value => instructionMap[key]!.value;
 }
 
-abstract class Instruction {
-  final Map<String, Instruction> instructionMap;
-
-  Instruction(this.instructionMap);
-
+abstract class Instruction(final Map<String, Instruction> instructionMap) {
   late final value = getValue();
 
   int getValue();
 }
 
-class ConstantInstruction extends Instruction {
-  final Reference reference;
-
+class ConstantInstruction(super.instructionMap, final Reference reference)
+    extends Instruction {
   @override
   int getValue() => reference.value;
-
-  ConstantInstruction(super.instructionMap, this.reference);
 }
 
-class AndInstruction extends Instruction {
-  final Reference wire1;
-  final Reference wire2;
-
-  AndInstruction(super.instructionMap, this.wire1, this.wire2);
-
+class AndInstruction(
+  super.instructionMap,
+  final Reference wire1,
+  final Reference wire2,
+) extends Instruction {
   @override
   int getValue() => wire1.value & wire2.value;
 }
 
-class OrInstruction extends Instruction {
-  final Reference wire1;
-  final Reference wire2;
-
-  OrInstruction(super.instructionMap, this.wire1, this.wire2);
-
+class OrInstruction(
+  super.instructionMap,
+  final Reference wire1,
+  final Reference wire2,
+) extends Instruction {
   @override
   int getValue() => wire1.value | wire2.value;
 }
 
-class LShiftInstruction extends Instruction {
-  final Reference wire;
-  final int amount;
-
-  LShiftInstruction(super.instructionMap, this.wire, this.amount);
-
+class LShiftInstruction(
+  super.instructionMap,
+  final Reference wire,
+  final int amount,
+) extends Instruction {
   @override
   int getValue() => uint16clamp(wire.value << amount);
 }
 
-class RShiftInstruction extends Instruction {
-  final Reference wire;
-  final int amount;
-
-  RShiftInstruction(super.instructionMap, this.wire, this.amount);
-
+class RShiftInstruction(
+  super.instructionMap,
+  final Reference wire,
+  final int amount,
+) extends Instruction {
   @override
   int getValue() => uint16clamp(wire.value >>> amount);
 }
 
-class NotInstruction extends Instruction {
-  final Reference wire;
-
-  NotInstruction(super.instructionMap, this.wire);
-
+class NotInstruction(super.instructionMap, final Reference wire)
+    extends Instruction {
   @override
   int getValue() => uint16clamp(~wire.value);
 }

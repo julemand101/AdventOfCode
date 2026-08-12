@@ -1,8 +1,12 @@
 // --- Day 16: Chronal Classification ---
 // https://adventofcode.com/2018/day/16
 
-typedef Instruction =
-    void Function(List<Register> registers, int a, int b, int c);
+typedef Instruction = void Function(
+  List<Register> registers,
+  int a,
+  int b,
+  int c,
+);
 
 class Register {
   int value;
