@@ -10,13 +10,6 @@ final int horizontalLineRune = "-".runes.first;
 
 enum Direction { up, down, left, right }
 
-class Day19Result {
-  final int steps;
-  final String visitedLetters;
-
-  Day19Result(this.steps, this.visitedLetters);
-}
-
 String solveA(List<String> input) {
   return solve(input).visitedLetters;
 }
@@ -25,7 +18,7 @@ int solveB(List<String> input) {
   return solve(input).steps;
 }
 
-Day19Result solve(List<String> input) {
+({int steps, String visitedLetters}) solve(List<String> input) {
   final network = <Uint8List>[];
   int steps = 0;
   final visitedLetters = StringBuffer();
@@ -88,5 +81,5 @@ Day19Result solve(List<String> input) {
     steps++;
   }
 
-  return Day19Result(steps, visitedLetters.toString());
+  return (steps: steps, visitedLetters: visitedLetters.toString());
 }

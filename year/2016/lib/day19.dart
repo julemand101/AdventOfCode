@@ -3,11 +3,8 @@
 
 import 'dart:collection';
 
-final class Elf extends LinkedListEntry<Elf> {
-  final int id;
+final class Elf(final int id) extends LinkedListEntry<Elf> {
   int value = 1;
-
-  Elf(this.id);
 }
 
 int solveA(int input) {

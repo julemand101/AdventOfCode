@@ -1,10 +1,7 @@
 // --- Day 20: Particle Swarm ---
 // https://adventofcode.com/2017/day/20
 
-class Coordinate {
-  int x, y, z;
-  Coordinate(this.x, this.y, this.z);
-
+class Coordinate(var int x, var int y, var int z) {
   void add(Coordinate c) {
     x += c.x;
     y += c.y;
@@ -12,16 +9,16 @@ class Coordinate {
   }
 }
 
-class Particle {
-  final int id;
-  final Coordinate _position;
-  final Coordinate _velocity;
-  final Coordinate _acceleration;
-
-  Particle(this.id, this._position, this._velocity, this._acceleration);
-
+class Particle(
+  final int id,
+  final Coordinate _position,
+  final Coordinate _velocity,
+  final Coordinate _acceleration,
+) {
   Coordinate get position => _position;
+
   Coordinate get velocity => _velocity;
+
   Coordinate get acceleration => _acceleration;
 
   void tick() {

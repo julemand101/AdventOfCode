@@ -21,15 +21,13 @@ class Output extends Thing {
   }
 }
 
-class Bot extends Thing {
-  String name;
-  String low;
-  String high;
+class Bot(
+  final String name,
+  final String low,
+  final String high,
+  final void Function(String botId, int a, int b) checkForAnswerA,
+) extends Thing {
   int? buffer;
-
-  void Function(String botId, int a, int b) checkForAnswerA;
-
-  Bot(this.name, this.low, this.high, this.checkForAnswerA);
 
   @override
   void take(Map<String, Thing> outputs, int value) {

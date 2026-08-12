@@ -11,25 +11,18 @@ final regExp = RegExp(
   r'([a-zA-Z]*)-compatible microchip|([a-zA-Z]*) generator',
 );
 
-abstract class Thing {
+abstract class Thing(final String name) {
   static int _nextId = 0;
 
-  final String name;
   final int id = _nextId++;
-
-  Thing(this.name);
 }
 
-class Chip extends Thing {
-  Chip(super.name);
-
+class Chip(super.name) extends Thing {
   @override
   String toString() => '$name-compatible microchip';
 }
 
-class Generator extends Thing {
-  Generator(super.name);
-
+class Generator(super.name) extends Thing {
   @override
   String toString() => '$name generator';
 }

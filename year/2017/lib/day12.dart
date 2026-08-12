@@ -1,11 +1,8 @@
 // --- Day 12: Digital Plumber ---
 // https://adventofcode.com/2017/day/12
 
-class Program {
-  final String name;
+class Program(final String name) {
   final List<Program> programs = [];
-
-  Program(this.name);
 
   void addProgram(Program program) {
     programs.add(program);

@@ -1,12 +1,10 @@
 // --- Day 9: Stream Processing ---
 // https://adventofcode.com/2017/day/9
 
-class GarbageResult {
-  final String result;
-  final int nonCanceledCharactersInGarbage;
-
-  GarbageResult(this.result, this.nonCanceledCharactersInGarbage);
-}
+class GarbageResult(
+  final String result,
+  final int nonCanceledCharactersInGarbage,
+);
 
 int solveA(String input) {
   int pointLevel = 0;

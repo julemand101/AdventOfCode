@@ -24,10 +24,9 @@ int solve(List<String> mapList, int burstsOfActivity, VirusCall virusCall) {
 
 enum Direction { left, right, up, down }
 
-class Virus {
-  int x;
-  int y;
-  final InfectionMap map;
+class Virus(int mapSize, final InfectionMap map) {
+  int x = (mapSize / 2).floor();
+  int y = (mapSize / 2).floor();
   Direction direction = Direction.up;
   int infectCount = 0;
 
@@ -37,10 +36,6 @@ class Virus {
     State.infected: State.flagged,
     State.flagged: State.clean,
   };
-
-  Virus(int mapSize, this.map)
-    : x = (mapSize / 2).floor(),
-      y = (mapSize / 2).floor();
 
   void burstA() {
     final isCurrentNodeInfected = map.isInfected(x, y);
@@ -157,10 +152,10 @@ class Virus {
 
 enum State { clean, weakened, infected, flagged }
 
-class InfectionMap {
+class InfectionMap(List<String> mapList) {
   final _infected = <int, State>{}; // element not in map == clean
 
-  InfectionMap(List<String> mapList) {
+  this {
     for (var y = 0; y < mapList.length; y++) {
       final line = mapList[y];
 

@@ -20,11 +20,8 @@ String solveA(List<String> lines) {
   throw Exception('This should not happen!');
 }
 
-class Node {
-  int _weight;
+class Node(var int _weight) {
   final List<Node> children = [];
-
-  Node(this._weight);
 
   int get weight => children.fold(_weight, (prev, node) => prev + node.weight);
 

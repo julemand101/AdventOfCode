@@ -25,10 +25,8 @@ abstract class Command {
   }
 }
 
-class SpinCommand extends Command {
-  final int length;
-
-  SpinCommand(String input) : length = int.parse(input);
+class SpinCommand(String input) extends Command {
+  final int length = int.parse(input);
 
   @override
   void execute(List<String> programs) {
@@ -36,11 +34,11 @@ class SpinCommand extends Command {
   }
 }
 
-class ExchangeCommand extends Command {
+class ExchangeCommand(String input) extends Command {
   late final int posA;
   late final int posB;
 
-  ExchangeCommand(String input) {
+  this {
     final parts = input.split("/");
     posA = int.parse(parts[0]);
     posB = int.parse(parts[1]);
@@ -52,11 +50,11 @@ class ExchangeCommand extends Command {
   }
 }
 
-class PartnerCommand extends Command {
+class PartnerCommand(String input) extends Command {
   late final String a;
   late final String b;
 
-  PartnerCommand(String input) {
+  this {
     final parts = input.split("/");
     a = parts[0];
     b = parts[1];
