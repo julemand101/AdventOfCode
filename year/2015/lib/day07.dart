@@ -77,10 +77,7 @@ Map<String, int> solve(Iterable<String> input, [int? overrideWireB]) {
 abstract class Reference {
   int get value;
 
-  factory Reference(
-    Map<String, Instruction> instructionMap,
-    String refOrValue,
-  ) {
+  factory(Map<String, Instruction> instructionMap, String refOrValue) {
     if (int.tryParse(refOrValue) case final value?) {
       return ConstantReference(value);
     } else {

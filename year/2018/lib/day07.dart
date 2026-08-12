@@ -3,21 +3,15 @@
 
 import 'dart:collection';
 
-class Step {
-  final String id;
-  final int time;
+class Step(final String id) {
+  final int time = id.codeUnitAt(0) - 64;
   final Set<Step> dependencies = <Step>{};
   final Set<Step> stepsThereDependsOnThisStep = <Step>{};
-
-  Step(this.id) : time = id.codeUnitAt(0) - 64;
 }
 
-class Worker {
-  final int extraTimeForWork;
+class Worker(final int extraTimeForWork) {
   int time = 0;
   Step? step;
-
-  Worker(this.extraTimeForWork);
 
   void addStep(Step step) {
     this.step = step;

@@ -3,13 +3,9 @@
 
 import 'dart:math';
 
-class Marble {
-  final int value;
-
+class Marble(final int value) {
   Marble? prev;
   Marble? next;
-
-  Marble(this.value);
 
   void addNext(Marble marble) {
     marble

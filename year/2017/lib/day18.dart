@@ -3,15 +3,13 @@
 
 import 'dart:collection';
 
-class Memory {
+class Memory([Queue<int>? inQueue, Queue<int>? outQueue]) {
   int _sendCounter = 0;
   final Queue<int> _inQueue;
   final Queue<int> _outQueue;
   final Map<String, int> _registers = {};
 
-  Memory([Queue<int>? inQueue, Queue<int>? outQueue])
-    : _inQueue = inQueue ?? Queue(),
-      _outQueue = outQueue ?? Queue();
+  this : _inQueue = inQueue ?? Queue(), _outQueue = outQueue ?? Queue();
 
   void setRegister(String register, int value) {
     _registers[register] = value;
@@ -27,7 +25,9 @@ class Memory {
   }
 
   int get sendCounter => _sendCounter;
+
   bool get canReceive => _inQueue.isNotEmpty;
+
   int receive() => _inQueue.removeFirst();
 }
 

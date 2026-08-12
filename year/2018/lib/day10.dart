@@ -3,40 +3,33 @@
 
 import 'dart:math' as math;
 
-class Point {
-  final int _x;
-  final int _y;
-  final int _velocityX;
-  final int _velocityY;
-
+class Point({
+  required final int _x,
+  required final int _y,
+  required final int _velocityX,
+  required final int _velocityY,
+}) {
   static final _exp = RegExp(
     r'position=<([- ]?\d*), ([- ]?\d*)> '
     r'velocity=<([- ]?\d*), ([- ]?\d*)>',
   );
 
-  const Point(this._x, this._y, this._velocityX, this._velocityY);
-
-  factory Point.fromLine(String line) {
+  factory fromLine(String line) {
     final matches = _exp.firstMatch(line)!;
-
-    final x = int.parse(matches[1]!);
-    final y = int.parse(matches[2]!);
-    final velocityX = int.parse(matches[3]!);
-    final velocityY = int.parse(matches[4]!);
-
-    return Point(x, y, velocityX, velocityY);
+    return Point(
+      x: int.parse(matches[1]!),
+      y: int.parse(matches[2]!),
+      velocityX: int.parse(matches[3]!),
+      velocityY: int.parse(matches[4]!),
+    );
   }
 
   int getX(int time) => _x + (_velocityX * time);
+
   int getY(int time) => _y + (_velocityY * time);
 }
 
-class PuzzleAnswer {
-  final String message;
-  final int seconds;
-
-  const PuzzleAnswer(this.message, this.seconds);
-}
+class const PuzzleAnswer(final String message, final int seconds);
 
 PuzzleAnswer solve(List<String> input) {
   final points = input.map((line) => Point.fromLine(line)).toList();

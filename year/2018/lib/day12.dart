@@ -1,18 +1,9 @@
 // --- Day 12: Subterranean Sustainability ---
 // https://adventofcode.com/2018/day/12
 
-class Pot {
-  final int id;
-  bool containPlant;
+class Pot(final int id, {var bool containPlant = false});
 
-  Pot(this.id, {this.containPlant = false});
-}
-
-class Rule {
-  final List<bool> pattern;
-
-  const Rule(this.pattern);
-
+class const Rule(final List<bool> pattern) {
   bool match(List<Pot> pots) {
     for (var i = 0; i < pots.length; i++) {
       if (pots[i].containPlant != pattern[i]) {

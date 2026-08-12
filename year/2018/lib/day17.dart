@@ -26,7 +26,7 @@ class Grid {
   final List<GridState> list;
   final int lowestY;
 
-  factory Grid(List<String> lines) {
+  factory(List<String> lines) {
     final regEx = RegExp(r'([xy])=(\d*), ([xy])=(\d*)..(\d*)');
 
     var minX = 100000, maxX = 0, maxY = 0, lowestY = 10000;
@@ -79,7 +79,7 @@ class Grid {
     return grid;
   }
 
-  Grid._filled(
+  new _filled(
     this.offSetX,
     int length,
     this.height,
@@ -89,6 +89,7 @@ class Grid {
       length = length - offSetX;
 
   GridState get(int x, int y) => list[_getPos(x, y)];
+
   void set(int x, int y, GridState value) => list[_getPos(x, y)] = value;
 
   int _getPos(int x, int y) => (x - offSetX) + (y * length);

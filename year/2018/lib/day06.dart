@@ -3,9 +3,9 @@
 
 import 'dart:math';
 
-class Coordinate extends Point<int> {
-  const Coordinate(super.x, super.y);
+typedef Coordinate = ({int x, int y});
 
+extension on Coordinate {
   int manhattanDistanceByCoordinate(int x, int y) =>
       (this.x - x).abs() + (this.y - y).abs();
 }
@@ -114,5 +114,5 @@ int solveB(List<String> input, int totalDistanceLessThan) {
 
 Coordinate _parseToCoordinate(String line) {
   final parts = line.split(', ');
-  return Coordinate(int.parse(parts[0]), int.parse(parts[1]));
+  return (x: int.parse(parts[0]), y: int.parse(parts[1]));
 }

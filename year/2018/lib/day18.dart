@@ -16,7 +16,7 @@ class Forrest {
   final int length, height;
   final List<AcreType?> list;
 
-  Forrest(List<String> lines)
+  new(List<String> lines)
     : length = lines[0].length,
       height = lines.length,
       list = List.filled(lines[0].length * lines.length, null) {
@@ -27,7 +27,7 @@ class Forrest {
     }
   }
 
-  Forrest._(this.length, this.height, this.list);
+  new _(this.length, this.height, this.list);
 
   static AcreType _parse(String acre) {
     switch (acre) {

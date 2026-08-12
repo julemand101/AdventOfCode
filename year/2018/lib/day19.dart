@@ -1,10 +1,7 @@
 // --- Day 19: Go With The Flow ---
 // https://adventofcode.com/2018/day/19
 
-class Register {
-  int value;
-  Register(this.value);
-
+class Register(var int value) {
   @override
   String toString() => value.toString();
 }
@@ -43,13 +40,13 @@ Map<String, Instruction> instructions = Map.unmodifiable(<String, Instruction>{
   'eqrr': (r, a, b, c) => r[c].value = (r[a].value == r[b].value) ? 1 : 0,
 });
 
-class CodeLine {
-  final String instructionName;
-  final Instruction instruction;
-  final int a, b, c;
-
-  CodeLine(this.instructionName, this.a, this.b, this.c)
-    : instruction = instructions[instructionName]!;
+class CodeLine(
+  final String instructionName,
+  final int a,
+  final int b,
+  final int c,
+) {
+  final Instruction instruction = instructions[instructionName]!;
 
   void call(List<Register> r) => instruction(r, a, b, c);
 

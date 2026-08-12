@@ -1,11 +1,11 @@
 // --- Day 8: Memory Maneuver ---
 // https://adventofcode.com/2018/day/8
 
-class Node {
+class Node(List<int> input) {
   final List<Node> childNodes = [];
   final List<int> metadata = [];
 
-  Node(List<int> input) {
+  this {
     final quantityChildNodes = input.removeLast();
     final quantityMetadataEntries = input.removeLast();
 

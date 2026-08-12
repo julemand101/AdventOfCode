@@ -8,60 +8,63 @@ typedef Instruction = void Function(
   int c,
 );
 
-class Register {
-  int value;
-  Register(this.value);
-
+class Register(var int value) {
   @override
   String toString() => value.toString();
 
   Register clone() => Register(value);
 }
 
-class Sample {
-  late List<Register> before;
-  late List<Register> after;
-  late ProgramInstruction programInstruction;
-
+class Sample._({
+  required final List<Register> before,
+  required final List<Register> after,
+  required final ProgramInstruction programInstruction,
+}) {
   static final RegExp _before = RegExp(r'Before: \[(\d), (\d), (\d), (\d)]');
   static final RegExp _after = RegExp(r'After: {2}\[(\d), (\d), (\d), (\d)]');
 
-  Sample(List<String> lines) {
+  factory(List<String> lines) {
     if (lines.length != 3) {
       throw Exception('Did not get 3 lines!');
     }
 
     final beforeMatches = _before.allMatches(lines[0]).first;
-    before = createRegisters(
-      int.parse(beforeMatches[1]!),
-      int.parse(beforeMatches[2]!),
-      int.parse(beforeMatches[3]!),
-      int.parse(beforeMatches[4]!),
-    );
-
-    programInstruction = ProgramInstruction(lines[1]);
-
     final afterMatches = _after.allMatches(lines[2]).first;
-    after = createRegisters(
-      int.parse(afterMatches[1]!),
-      int.parse(afterMatches[2]!),
-      int.parse(afterMatches[3]!),
-      int.parse(afterMatches[4]!),
+
+    return ._(
+      before: createRegisters(
+        int.parse(beforeMatches[1]!),
+        int.parse(beforeMatches[2]!),
+        int.parse(beforeMatches[3]!),
+        int.parse(beforeMatches[4]!),
+      ),
+      after: createRegisters(
+        int.parse(afterMatches[1]!),
+        int.parse(afterMatches[2]!),
+        int.parse(afterMatches[3]!),
+        int.parse(afterMatches[4]!),
+      ),
+      programInstruction: ProgramInstruction(lines[1]),
     );
   }
 }
 
-class ProgramInstruction {
-  late int op, a, b, c;
-
+class ProgramInstruction._({
+  required final int op,
+  required final int a,
+  required final int b,
+  required final int c,
+}) {
   static final RegExp _instruction = RegExp(r'(\d+) (\d) (\d) (\d)');
 
-  ProgramInstruction(String line) {
+  factory(String line) {
     final instructionMatches = _instruction.allMatches(line).first;
-    op = int.parse(instructionMatches[1]!);
-    a = int.parse(instructionMatches[2]!);
-    b = int.parse(instructionMatches[3]!);
-    c = int.parse(instructionMatches[4]!);
+    return ._(
+      op: int.parse(instructionMatches[1]!),
+      a: int.parse(instructionMatches[2]!),
+      b: int.parse(instructionMatches[3]!),
+      c: int.parse(instructionMatches[4]!),
+    );
   }
 
   void call(List<Register> registers, Instruction instruction) {

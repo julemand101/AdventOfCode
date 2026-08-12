@@ -5,12 +5,8 @@ enum Direction { up, down, left, right }
 
 enum TurnDirection { left, straight, right }
 
-class Cart {
-  int x, y;
-  Direction direction;
+class Cart(var int x, var int y, var Direction direction) {
   TurnDirection turnDirection = TurnDirection.left;
-
-  Cart(this.x, this.y, this.direction);
 
   static List<Cart> getCartsFromMap(List<String> map) {
     final carts = <Cart>[];

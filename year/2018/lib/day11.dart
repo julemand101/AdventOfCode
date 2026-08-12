@@ -8,11 +8,11 @@ import 'dart:typed_data';
 //
 // For more information:
 // https://en.wikipedia.org/wiki/Summed-area_table
-class Grid {
+class Grid(int gridSerialNumber) {
   static const int size = 301;
   final List<int> list = Int32List(size * size);
 
-  Grid(int gridSerialNumber) {
+  this {
     for (var y = 1; y < size; y++) {
       for (var x = 1; x < size; x++) {
         list[x + (y * size)] =

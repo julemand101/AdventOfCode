@@ -3,21 +3,17 @@
 
 import 'dart:math';
 
-class Claim {
+class Claim._({
+  required final int id,
+  required final int x,
+  required final int y,
+  required final int wide,
+  required final int tall,
+}) {
   // #1 @ 1,3: 4x4
   static final _exp = RegExp(r'#(\d+) @ (\d+),(\d+): (\d+)x(\d+)');
 
-  int id, x, y, wide, tall;
-
-  Claim._({
-    required this.id,
-    required this.x,
-    required this.y,
-    required this.wide,
-    required this.tall,
-  });
-
-  factory Claim(String input) {
+  factory(String input) {
     final matches = _exp.firstMatch(input)!;
 
     return Claim._(

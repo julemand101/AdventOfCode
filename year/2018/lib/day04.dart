@@ -1,13 +1,9 @@
 // --- Day 4: Repose Record ---
 // https://adventofcode.com/2018/day/4
 
-class Guard {
-  final int id;
-
+class Guard(final int id) {
   // Key = minute, value = how often the guard sleeps on this minute
   final Map<int, int> sleepMap = {};
-
-  Guard(this.id);
 
   DateTime? _startSleepTime;
 

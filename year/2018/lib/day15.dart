@@ -12,12 +12,7 @@ abstract class Destination {}
 //  |  __/ (_) | | | | | |_
 //  |_|   \___/|_|_| |_|\__|
 //
-abstract class Point {
-  final Map map;
-  int x, y;
-
-  Point(this.map, this.x, this.y);
-
+abstract class Point(final Map map, var int x, var int y) {
   Iterable<Point?> get adjacentPoints sync* {
     // Up
     if (y - 1 >= 0) {
@@ -49,9 +44,7 @@ abstract class Point {
 //    \ V  V / (_| | | |
 //     \_/\_/ \__,_|_|_|
 //
-class Wall extends Point {
-  Wall(super.map, super.x, super.y);
-
+class Wall(super.map, super.x, super.y) extends Point {
   @override
   String toString() => '#';
 }
@@ -62,9 +55,7 @@ class Wall extends Point {
 //  | |___| | | | | | |_) | |_| |_| |
 //  |_____|_| |_| |_| .__/ \__|\__, |
 //                  |_|        |___/
-class Empty extends Point implements Destination {
-  Empty(super.map, super.x, super.y);
-
+class Empty(super.map, super.x, super.y) extends Point implements Destination {
   @override
   String toString() => '.';
 }
@@ -75,11 +66,10 @@ class Empty extends Point implements Destination {
 //  | |___| | | | (_| | | | (_| | (__| |_  __/ |
 //   \____|_| |_|\__,_|_|  \__,_|\___|\__\___|_|
 //
-abstract class Character extends Point implements Destination {
-  final int attackPower;
+abstract class Character(super.map, super.x, super.y, final int attackPower)
+    extends Point
+    implements Destination {
   int hp = 200;
-
-  Character(super.map, super.x, super.y, this.attackPower);
 
   void moveTo(int newX, int newY) {
     final point = map.getPoint(newX, newY);
@@ -112,8 +102,11 @@ abstract class Character extends Point implements Destination {
   }
 
   bool get isAlive => hp > 0;
+
   bool get isDead => !isAlive;
+
   Iterable<Character> get enemies;
+
   Iterable<Character> get adjacentEnemies;
 
   Route? getRouteToNearestEnemy();
@@ -158,6 +151,7 @@ abstract class Character extends Point implements Destination {
   }
 
   static bool _routeHaveLength(Route r) => r.length != null;
+
   static Route _findRouteWithShortestLength(Route a, Route b) =>
       (a.length! > b.length!) ? b : a;
 }
@@ -168,8 +162,8 @@ abstract class Character extends Point implements Destination {
 //  | |_| | (_) | |_) | | | | | |
 //   \____|\___/|_.__/|_|_|_| |_|
 //
-class Goblin extends Character {
-  Goblin(Map map, int x, int y) : super(map, x, y, 3);
+class Goblin(Map map, int x, int y) extends Character {
+  this : super(map, x, y, 3);
 
   @override
   Iterable<Character> get enemies => map.grid.list.whereType<Elf>();
@@ -191,9 +185,7 @@ class Goblin extends Character {
 //  | |___| |  _|
 //  |_____|_|_|
 //
-class Elf extends Character {
-  Elf(super.map, super.x, super.y, super.attackPower);
-
+class Elf(super.map, super.x, super.y, super.attackPower) extends Character {
   @override
   Iterable<Character> get enemies => map.grid.list.whereType<Goblin>();
 
@@ -214,16 +206,15 @@ class Elf extends Character {
 //  | |_| | |  | | (_| |
 //   \____|_|  |_|\__,_|
 //
-class Grid<T> {
-  final int length, height;
-  final List<T> list;
+class Grid<T>._(final int length, final int height, final List<T> list) {
+  factory filled(int length, int height, T value) =>
+      ._(length, height, List.filled(length * height, value));
 
-  Grid.filled(this.length, this.height, T value)
-    : list = List.filled(length * height, value);
-  Grid.generate(this.length, this.height, T Function(int) generate)
-    : list = List.generate(length * height, generate);
+  factory generate(int length, int height, T Function(int) generate) =>
+      ._(length, height, List.generate(length * height, generate));
 
   T get(int x, int y) => list[_getPos(x, y)];
+
   void set(int x, int y, T value) => list[_getPos(x, y)] = value;
 
   int _getPos(int x, int y) => x + (y * length);
@@ -283,10 +274,13 @@ class Map {
   }
 
   Point? getPoint(int x, int y) => grid.get(x, y);
+
   void setPoint(int x, int y, Point value) => grid.set(x, y, value);
 
   Iterable<Character> getTurnOrder() => grid.list.whereType<Character>();
+
   Iterable<Elf> get elvers => grid.list.whereType<Elf>();
+
   Iterable<Goblin> get goblins => grid.list.whereType<Goblin>();
 
   @override
@@ -299,12 +293,9 @@ class Map {
 //  |  _ < (_) | |_| | |_  __/
 //  |_| \_\___/ \__,_|\__\___|
 //
-class Route {
-  final Point point;
+class Route(final Point point) {
   Route? prev;
   int? length;
-
-  Route(this.point);
 
   Iterable<Route> getRoute() sync* {
     yield this;
