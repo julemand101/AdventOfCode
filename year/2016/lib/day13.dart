@@ -54,14 +54,4 @@ int solveB(int input) => solve(input, (_, value) => value == 50).mapLength;
 bool isWall(int x, int y, int input) =>
     x < 0 ||
     y < 0 ||
-    countSetBits((x * x + 3 * x + 2 * x * y + y + y * y) + input).isOdd;
-
-// TODO: Can be replaced with int.oneBitCount in Dart 3.13
-int countSetBits(int n) {
-  int count = 0;
-  while (n != 0) {
-    n &= (n - 1);
-    count++;
-  }
-  return count;
-}
+    ((x * x + 3 * x + 2 * x * y + y + y * y) + input).oneBitCount.isOdd;
