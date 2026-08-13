@@ -1,28 +1,33 @@
 // --- Day 12: The N-Body Problem ---
 // https://adventofcode.com/2019/day/12
 
-class Moon {
-  late int positionX, positionY, positionZ;
-  int velocityX = 0, velocityY = 0, velocityZ = 0;
+class Moon._({
+  required var int positionX,
+  required var int positionY,
+  required var int positionZ,
+}) {
+  int velocityX = 0;
+  int velocityY = 0;
+  int velocityZ = 0;
 
   // <x=2, y=-10, z=-7>
   static final _pattern = RegExp(r'-?\d+');
 
-  Moon(String input) {
+  factory(String input) {
     final parsed = _pattern
         .allMatches(input)
         .map((match) => int.parse(match[0]!))
         .toList(growable: false);
 
-    positionX = parsed[0];
-    positionY = parsed[1];
-    positionZ = parsed[2];
+    return ._(positionX: parsed[0], positionY: parsed[1], positionZ: parsed[2]);
   }
 
-  Moon.clone(Moon moon)
-    : positionX = moon.positionX,
-      positionY = moon.positionY,
-      positionZ = moon.positionZ;
+  new clone(Moon moon)
+    : this._(
+        positionX: moon.positionX,
+        positionY: moon.positionY,
+        positionZ: moon.positionZ,
+      );
 
   void updateVelocity(Moon other) {
     velocityX += other.positionX.compareTo(positionX);

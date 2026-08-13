@@ -3,11 +3,8 @@
 
 import 'dart:typed_data';
 
-class ImageLayer {
-  final Int8List data;
-  final int length, height;
-
-  ImageLayer(this.length, this.height) : data = Int8List(length * height);
+class ImageLayer(final int length, final int height) {
+  final Int8List data = Int8List(length * height);
 
   int countDigit(int digit) => data.where((d) => d == digit).length;
   int get oneAndTwoDigitsMultiplied => countDigit(1) * countDigit(2);

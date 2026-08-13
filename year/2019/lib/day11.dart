@@ -5,13 +5,43 @@ import 'dart:math';
 
 import 'intcode_computer.dart';
 
-const int black = 0;
-const int white = 1;
+enum Direction {
+  up,
+  right,
+  down,
+  left;
 
-const int left = 0;
-const int right = 1;
+  Direction changeDirection(int move) {
+    const int left = 0;
+    const int right = 1;
 
-enum Direction { up, right, down, left }
+    if (move != left && move != right) {
+      throw Exception('$move is not a valid move!');
+    }
+
+    return switch (this) {
+      Direction.up => (move == left) ? Direction.left : Direction.right,
+      Direction.right => (move == left) ? Direction.up : Direction.down,
+      Direction.down => (move == left) ? Direction.right : Direction.left,
+      Direction.left => (move == left) ? Direction.down : Direction.up,
+    };
+  }
+}
+
+extension type Point._(({int x, int y}) p) {
+  factory(int x, int y) => Point._((x: x, y: y));
+
+  int get x => p.x;
+
+  int get y => p.y;
+
+  Point move(Direction direction) => switch (direction) {
+    Direction.up => Point(x, y - 1),
+    Direction.right => Point(x + 1, y),
+    Direction.down => Point(x, y + 1),
+    Direction.left => Point(x - 1, y),
+  };
+}
 
 int solveA(String intcodeProgram) => paint(intcodeProgram, 0).length;
 
@@ -46,11 +76,11 @@ String solveB(String intcodeProgram) {
   return sb.toString();
 }
 
-Map<Point<int>, int> paint(String intcodeProgram, int startColor) {
+Map<Point, int> paint(String intcodeProgram, int startColor) {
   final computer = IntcodeComputer.fromString(intcodeProgram);
-  final panels = <Point<int>, int>{};
+  final panels = <Point, int>{};
 
-  var currentPosition = const Point(0, 0);
+  var currentPosition = Point(0, 0);
   var currentDirection = Direction.up;
 
   final input = <int>[startColor];
@@ -64,8 +94,8 @@ Map<Point<int>, int> paint(String intcodeProgram, int startColor) {
       final leftOrRight = outputPair[1];
 
       panels[currentPosition] = color;
-      currentDirection = changeDirection(leftOrRight, currentDirection);
-      currentPosition = move(currentPosition, currentDirection);
+      currentDirection = currentDirection.changeDirection(leftOrRight);
+      currentPosition = currentPosition.move(currentDirection);
 
       // Change input to color of new position
       input[0] = panels.putIfAbsent(currentPosition, () => 0);
@@ -74,34 +104,4 @@ Map<Point<int>, int> paint(String intcodeProgram, int startColor) {
   }
 
   return panels;
-}
-
-Direction changeDirection(int move, Direction currentDirection) {
-  if (move != left && move != right) {
-    throw Exception('$move is not a valid move!');
-  }
-
-  switch (currentDirection) {
-    case Direction.up:
-      return (move == left) ? Direction.left : Direction.right;
-    case Direction.right:
-      return (move == left) ? Direction.up : Direction.down;
-    case Direction.down:
-      return (move == left) ? Direction.right : Direction.left;
-    case Direction.left:
-      return (move == left) ? Direction.down : Direction.up;
-  }
-}
-
-Point<int> move(Point<int> currentPosition, Direction direction) {
-  switch (direction) {
-    case Direction.up:
-      return Point(currentPosition.x, currentPosition.y - 1);
-    case Direction.right:
-      return Point(currentPosition.x + 1, currentPosition.y);
-    case Direction.down:
-      return Point(currentPosition.x, currentPosition.y + 1);
-    case Direction.left:
-      return Point(currentPosition.x - 1, currentPosition.y);
-  }
 }

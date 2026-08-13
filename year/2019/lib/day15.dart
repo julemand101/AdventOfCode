@@ -13,11 +13,13 @@ class Node {
 }
 
 class ShipMap {
-  final Map<Point<int>, Node> _data = {};
+  final Map<Point, Node> _data = {};
 
-  Node get(Point<int> point) => _data.putIfAbsent(point, () => Node());
+  Node get(Point point) => _data.putIfAbsent(point, () => Node());
+
   Node getOxygen() => _data.values.firstWhere((node) => node.isOxygen);
-  List<Point<int>> get pointsNotFilledWithOxygenList => _data.entries
+
+  List<Point> get pointsNotFilledWithOxygenList => _data.entries
       .where((entry) => !entry.value.isOxygen && !entry.value.isWall)
       .map((entry) => entry.key)
       .toList(growable: false);
@@ -67,7 +69,7 @@ int solveA(String inputProgram) => solve(inputProgram).getOxygen().route.length;
 
 int solveB(String inputProgram) {
   final map = solve(inputProgram);
-  List<Point<int>> points;
+  List<Point> points;
   var minutes = 0;
 
   while ((points = map.pointsNotFilledWithOxygenList).isNotEmpty) {
@@ -88,9 +90,7 @@ int solveB(String inputProgram) {
 }
 
 ShipMap solve(String inputProgram) {
-  final unvisited = {
-    const Point(0, 0): IntcodeComputer.fromString(inputProgram),
-  };
+  final unvisited = {Point(0, 0): IntcodeComputer.fromString(inputProgram)};
   final map = ShipMap();
 
   while (unvisited.isNotEmpty) {
@@ -137,10 +137,20 @@ ShipMap solve(String inputProgram) {
   return map;
 }
 
-extension DirectionsOnPoint on Point<int> {
-  Point<int> get north => Point(x, y - 1);
-  Point<int> get south => Point(x, y + 1);
-  Point<int> get west => Point(x - 1, y);
-  Point<int> get east => Point(x + 1, y);
-  List<Point<int>> get neighbours => [north, south, west, east];
+extension type Point._(({int x, int y}) p) {
+  factory(int x, int y) => Point._((x: x, y: y));
+
+  int get x => p.x;
+
+  int get y => p.y;
+
+  Point get north => Point(x, y - 1);
+
+  Point get south => Point(x, y + 1);
+
+  Point get west => Point(x - 1, y);
+
+  Point get east => Point(x + 1, y);
+
+  List<Point> get neighbours => [north, south, west, east];
 }

@@ -3,12 +3,10 @@
 
 import 'dart:math';
 
-class Result {
-  final int maxAsteroidsDetected;
-  final Point<int> maxAsteroidsDetectedPoint;
-
-  Result(this.maxAsteroidsDetected, this.maxAsteroidsDetectedPoint);
-}
+typedef Result = ({
+  int maxAsteroidsDetected,
+  Point<int> maxAsteroidsDetectedPoint,
+});
 
 int solveA(List<String> input) {
   final asteroids = <Point<int>>[];
@@ -116,5 +114,8 @@ Result findStation(List<Point<int>> asteroids) {
     }
   }
 
-  return Result(maxAsteroidsDetected, maxAsteroidsDetectedPoint!);
+  return (
+    maxAsteroidsDetected: maxAsteroidsDetected,
+    maxAsteroidsDetectedPoint: maxAsteroidsDetectedPoint!,
+  );
 }

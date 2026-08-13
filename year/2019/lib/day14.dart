@@ -1,13 +1,8 @@
 // --- Day 14: Space Stoichiometry ---
 // https://adventofcode.com/2019/day/14
 
-class Chemical {
-  final String name;
-  final int quantity;
-
-  const Chemical(this.name, this.quantity);
-
-  factory Chemical.fromString(String input) {
+class const Chemical(final String name, final int quantity) {
+  factory fromString(String input) {
     final split = input.split(' ');
     return Chemical(split[1], int.parse(split[0]));
   }
@@ -16,13 +11,8 @@ class Chemical {
   String toString() => '$quantity $name';
 }
 
-class Reaction {
-  final List<Chemical> inputs;
-  final Chemical out;
-
-  const Reaction(this.inputs, this.out);
-
-  factory Reaction.fromString(String line) {
+class const Reaction(final List<Chemical> inputs, final Chemical out) {
+  factory fromString(String line) {
     final parts = line.split(' => ');
     return Reaction([
       ...parts[0].split(', ').map((string) => Chemical.fromString(string)),
