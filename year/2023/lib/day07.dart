@@ -13,14 +13,12 @@ int solveB(Iterable<String> input) => ([...input.map(Hand.part2)]..sort())
     .map((entry) => (entry.key + 1) * entry.value.bid)
     .reduce((a, b) => a + b);
 
-class Hand implements Comparable<Hand> {
-  final List<int> cardValues;
-  final int bid;
-  final TypeOfHand typeOfHand;
-
-  Hand._(this.cardValues, this.bid, this.typeOfHand);
-
-  factory Hand.part1(String line) {
+class Hand._(
+  final List<int> cardValues,
+  final int bid,
+  final TypeOfHand typeOfHand,
+) implements Comparable<Hand> {
+  factory part1(String line) {
     const cardValueMap = {
       'A': 14,
       'K': 13,
@@ -44,7 +42,7 @@ class Hand implements Comparable<Hand> {
     return Hand._(cardValues, int.parse(bidString), getTypeOfHand(cardValues));
   }
 
-  factory Hand.part2(String line) {
+  factory part2(String line) {
     const cardValueMap = {
       'A': 13,
       'K': 12,
@@ -149,7 +147,7 @@ class Hand implements Comparable<Hand> {
   }
 }
 
-enum TypeOfHand {
+enum TypeOfHand(final int value) {
   fiveOfAKind(7),
   fourOfAKind(6),
   fullHouse(5),
@@ -157,7 +155,4 @@ enum TypeOfHand {
   twoPair(3),
   onePair(2),
   highCard(1);
-
-  final int value;
-  const TypeOfHand(this.value);
 }

@@ -34,11 +34,11 @@ int solveB(List<String> input) {
     final match = regExp.firstMatch(lines.first)!;
 
     final almanacMap = AlmanacMap(
-      form: match[1]!,
+      from: match[1]!,
       to: match[2]!,
       intervals: [...lines.skip(1).map(Interval.parse)],
     );
-    lookup[almanacMap.form] = almanacMap;
+    lookup[almanacMap.from] = almanacMap;
   }
 
   for (final almanacMap in lookup.values) {
@@ -48,18 +48,12 @@ int solveB(List<String> input) {
   return (seeds: seeds, lookup: lookup);
 }
 
-class Interval {
-  final int destinationCategory;
-  final int sourceCategory;
-  final int rangeLength;
-
-  const Interval({
-    required this.destinationCategory,
-    required this.sourceCategory,
-    required this.rangeLength,
-  });
-
-  factory Interval.parse(String line) => switch (line.split(' ')) {
+class const Interval({
+  required final int destinationCategory,
+  required final int sourceCategory,
+  required final int rangeLength,
+}) {
+  factory parse(String line) => switch (line.split(' ')) {
     [
       final String destinationCategory,
       final String sourceCategory,
@@ -82,13 +76,12 @@ class Interval {
       : sourceValue;
 }
 
-class AlmanacMap {
-  final String form;
-  final String to;
-  final List<Interval> intervals;
+class AlmanacMap({
+  required final String from,
+  required final String to,
+  required final List<Interval> intervals,
+}) {
   AlmanacMap? next;
-
-  AlmanacMap({required this.form, required this.to, required this.intervals});
 
   int convert(int inputValue) {
     AlmanacMap? currentAlmanacMap = this;
