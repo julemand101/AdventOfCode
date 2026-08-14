@@ -4,6 +4,7 @@
 import 'dart:math';
 
 int solveA(List<String> input) => solve(input, steps: 10);
+
 int solveB(List<String> input) => solve(input, steps: 40);
 
 int solve(List<String> input, {required int steps}) {
@@ -46,18 +47,13 @@ int solve(List<String> input, {required int steps}) {
   return letterCountMap.values.reduce(max) - letterCountMap.values.reduce(min);
 }
 
-class LetterPair {
-  final String firstPair;
-  final String secondPair;
-  final String insertedLetter;
-
-  // Example of line:
-  // CH -> B
-  // 0123456 <- index position in line
-  LetterPair(String line)
-    : firstPair = line[0] + line[6],
-      secondPair = line[6] + line[1],
-      insertedLetter = line[6];
+// Example of line:
+// CH -> B
+// 0123456 <- index position in line
+class LetterPair(String line) {
+  final String firstPair = line[0] + line[6];
+  final String secondPair = line[6] + line[1];
+  final String insertedLetter = line[6];
 }
 
 extension StringExtension on String {

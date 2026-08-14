@@ -110,8 +110,8 @@ class Grid {
   final int ySize;
   final List<int> list;
 
-  Grid.uInt8List(this.xSize, this.ySize) : list = Uint8List(xSize * ySize);
-  Grid.uInt16List(this.xSize, this.ySize) : list = Uint16List(xSize * ySize);
+  new uInt8List(this.xSize, this.ySize) : list = Uint8List(xSize * ySize);
+  new uInt16List(this.xSize, this.ySize) : list = Uint16List(xSize * ySize);
 
   int get(int x, int y) => list[listIndexOf(x, y)];
   int listIndexOf(int x, int y) => x + (y * xSize);

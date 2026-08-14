@@ -3,14 +3,14 @@
 
 import 'dart:math';
 
-class Point3d {
-  final int x, y, z;
-
-  const Point3d(this.x, this.y, this.z);
-
-  factory Point3d.fromLine(String line) {
-    final [x, y, z] = line.split(',').map(int.parse).toList(growable: false);
-    return Point3d(x, y, z);
+class const Point3d(final int x, final int y, final int z) {
+  factory fromLine(String line) {
+    final parts = line.split(',');
+    return Point3d(
+      int.parse(parts[0]),
+      int.parse(parts[1]),
+      int.parse(parts[2]),
+    );
   }
 
   double distance(Point3d otherPoint) => pow(
@@ -64,13 +64,13 @@ class Point3d {
   String toString() => 'Point3d($x, $y, $z)';
 }
 
-class Scanner {
-  final int id;
-  final Point3d center;
-  final List<Point3d> points;
-
+class Scanner({
+  required final int id,
+  required final Point3d center,
+  required final List<Point3d> points,
+}) {
   // index = index in points, value = set of distances to other points
-  late final List<Set<double>> distancesFromPointIndex = [
+  final List<Set<double>> distancesFromPointIndex = [
     for (final startPoint in points)
       {
         for (final endPoint in points)
@@ -78,10 +78,9 @@ class Scanner {
       },
   ];
 
-  Scanner({required this.id, required this.center, required this.points});
-
   static final RegExp _scannerIdPattern = RegExp(r'--- scanner (\d+) ---');
-  factory Scanner.fromLines(List<String> lines) => Scanner(
+
+  factory fromLines(List<String> lines) => Scanner(
     id: int.parse(_scannerIdPattern.firstMatch(lines.first)![1]!),
     center: const Point3d(0, 0, 0),
     points: [...lines.skip(1).map(Point3d.fromLine)],
@@ -95,7 +94,7 @@ class Scanner {
                 .intersection(otherScanner.distancesFromPointIndex[b])
                 .length >
             10)
-          OverlappingWithResult(a, b),
+          (indexInScanner1: a, indexInScanner2: b),
   ];
 
   Iterable<Scanner> get rotations sync* {
@@ -122,10 +121,7 @@ class Scanner {
   );
 }
 
-class OverlappingWithResult {
-  final int indexInScanner1, indexInScanner2;
-  const OverlappingWithResult(this.indexInScanner1, this.indexInScanner2);
-}
+typedef OverlappingWithResult = ({int indexInScanner1, int indexInScanner2});
 
 Iterable<Scanner> parseInputToScanners(Iterable<String> lines) sync* {
   final buffer = <String>[];

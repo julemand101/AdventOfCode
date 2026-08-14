@@ -22,7 +22,7 @@ int solve(List<String> input, {required bool partA}) {
   throw Exception('No winner found!');
 }
 
-class BingoBoard {
+class BingoBoard(Iterable<String> input) {
   final List<Set<int>> rows = <Set<int>>[];
   final List<Set<int>> columns = List.generate(
     5,
@@ -31,7 +31,7 @@ class BingoBoard {
   );
   bool foundBingo = false;
 
-  BingoBoard(Iterable<String> input) {
+  this {
     for (final rowString in input) {
       final rowNumbers = rowString
           .trim()

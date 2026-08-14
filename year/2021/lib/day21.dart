@@ -3,19 +3,16 @@
 
 import 'dart:math';
 
-class Dice {
+class Dice() {
   int countRolls = 0;
 
   int roll() => (countRolls++ % 100) + 1;
   int roll3() => roll() + roll() + roll();
 }
 
-class PlayerPosition {
-  int _countPosition;
+class PlayerPosition({required int startPosition}) {
+  int _countPosition = startPosition - 1;
   int get countPosition => _countPosition + 1;
-
-  PlayerPosition({required int startPosition})
-    : _countPosition = startPosition - 1;
 
   int move(int value) =>
       (_countPosition = ((_countPosition += value) % 10)) + 1;
@@ -151,12 +148,7 @@ Outcome nextStep({
   return outcomeCache[outcomeKey] = newOutcome;
 }
 
-class Outcome {
-  final int player1Wins;
-  final int player2Wins;
-
-  const Outcome(this.player1Wins, this.player2Wins);
-
+class const Outcome(final int player1Wins, final int player2Wins) {
   Outcome operator *(int factor) =>
       Outcome(player1Wins * factor, player2Wins * factor);
 

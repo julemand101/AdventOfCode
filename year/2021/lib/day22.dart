@@ -3,12 +3,8 @@
 
 import 'dart:math';
 
-class Box {
-  final Point3d p1;
-  final Point3d p2;
+class Box(final Point3d p1, final Point3d p2) {
   final Set<Point3d> pointsNotPartOfBox = {};
-
-  Box(this.p1, this.p2);
 
   Box? intersection(Box otherBox) {
     final nP1 = Point3d(
@@ -113,11 +109,7 @@ int solveB(Iterable<String> input) {
   return 0;
 }
 
-class Point3d {
-  final int x, y, z;
-
-  const Point3d(this.x, this.y, this.z);
-
+class const Point3d(final int x, final int y, final int z) {
   @override
   int get hashCode => Object.hash(x, y, z);
 

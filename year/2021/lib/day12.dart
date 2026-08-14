@@ -40,14 +40,11 @@ int solveB(Iterable<String> input) {
   return routes.length;
 }
 
-class Node {
-  final String name;
+class Node(final String name) {
   final List<Node> neighbours = [];
-  final bool isSmallCave;
+  final bool isSmallCave = name.toLowerCase() == name;
   bool allowSecondVisit = false;
   int visits = 0;
-
-  Node(this.name) : isSmallCave = name.toLowerCase() == name;
 
   Iterable<String> getPathsToEnd(
     List<Node> currentRoute,

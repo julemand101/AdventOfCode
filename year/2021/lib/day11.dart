@@ -60,12 +60,8 @@ Result solve(Iterable<String> input, {required bool unlimitedSteps}) {
   return (stepsUntilSync: 100, sumOfFlashes: sumOfFlashes);
 }
 
-class Grid {
-  final int xSize;
-  final int ySize;
-  final Uint8List list;
-
-  Grid(this.xSize, this.ySize) : list = Uint8List(xSize * ySize);
+class Grid(final int xSize, final int ySize) {
+  final Uint8List list = Uint8List(xSize * ySize);
 
   int get(int x, int y) => list[listIndexOf(x, y)];
   int listIndexOf(int x, int y) => x + (y * xSize);

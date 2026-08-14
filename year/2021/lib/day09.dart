@@ -37,12 +37,8 @@ int solveB(List<String> input) {
   return basinSizes.reversed.take(3).reduce((a, b) => a * b);
 }
 
-class Grid {
-  final int xSize;
-  final int ySize;
-  final Uint8List _list;
-
-  Grid(this.xSize, this.ySize) : _list = Uint8List(xSize * ySize);
+class Grid(final int xSize, final int ySize) {
+  final Uint8List _list = Uint8List(xSize * ySize);
 
   int get(int x, int y) => _list[_getPos(x, y)];
   int _getPos(int x, int y) => x + (y * xSize);

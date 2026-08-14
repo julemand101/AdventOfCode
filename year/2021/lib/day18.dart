@@ -23,12 +23,10 @@ int solveB(List<String> input) {
   return maxMagnitude;
 }
 
-abstract class SnailfishNumber {
+abstract class SnailfishNumber() {
   Pair? parent;
 
-  SnailfishNumber();
-
-  factory SnailfishNumber.parse(String input) {
+  factory parse(String input) {
     if (input.length == 1) {
       return RegularNumber(int.parse(input));
     } else {
@@ -54,24 +52,26 @@ abstract class SnailfishNumber {
   }
 
   int get magnitude;
+
   Pair operator +(SnailfishNumber other) => Pair(this, other)..reduce();
 }
 
 enum ExplosionStatus { noExplosion, targetExploded, otherTargetExploded }
 
-class Pair extends SnailfishNumber {
-  SnailfishNumber _x, _y;
-
-  SnailfishNumber get x => _x;
-  set x(SnailfishNumber x) => (_x = x).parent = this;
-
-  SnailfishNumber get y => _y;
-  set y(SnailfishNumber y) => (_y = y).parent = this;
-
-  Pair(this._x, this._y) {
+class Pair(var SnailfishNumber _x, var SnailfishNumber _y)
+    extends SnailfishNumber {
+  this {
     _x.parent = this;
     _y.parent = this;
   }
+
+  SnailfishNumber get x => _x;
+
+  set x(SnailfishNumber x) => (_x = x).parent = this;
+
+  SnailfishNumber get y => _y;
+
+  set y(SnailfishNumber y) => (_y = y).parent = this;
 
   void reduce() {
     bool anyReduction;
@@ -195,11 +195,7 @@ class Pair extends SnailfishNumber {
   String toString() => '[$x,$y]';
 }
 
-class RegularNumber extends SnailfishNumber {
-  int value;
-
-  RegularNumber(this.value);
-
+class RegularNumber(var int value) extends SnailfishNumber {
   Pair get split {
     final newValue = value / 2;
 

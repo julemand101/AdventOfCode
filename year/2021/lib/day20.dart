@@ -39,7 +39,7 @@ int solve(List<String> input, {required int enhanceIterations}) {
   return image.pixels.length;
 }
 
-class Image {
+class Image() {
   Set<Point<int>> pixels = {};
   bool reversed = false;
   int minX = 0, maxX = 0;

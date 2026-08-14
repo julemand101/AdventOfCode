@@ -68,14 +68,12 @@ int evaluateBitsExpression(BitsTransmission bitsTransmission) {
   }
 }
 
-class BitsTransmission {
+class BitsTransmission(String input) {
+  final Uint8List bitList = Uint8List(input.length * 4)
+    ..setAll(0, input.codeUnits.expand((char) => _hexLetterToBits[char]!));
+
   int counter = 0;
   int versionSum = 0;
-  final Uint8List bitList;
-
-  BitsTransmission(String input)
-    : bitList = Uint8List(input.length * 4)
-        ..setAll(0, input.codeUnits.expand((char) => _hexLetterToBits[char]!));
 
   Uint8List readBits(int nBits) => bitList.sublist(counter, counter += nBits);
   int readBitsAsInt(int nBits) => convertBitsToInt(readBits(nBits));
