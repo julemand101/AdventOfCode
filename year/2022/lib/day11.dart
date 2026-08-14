@@ -33,33 +33,25 @@ int solve(Iterable<String> input, {required int rounds, required bool partB}) {
       .reduce((a, b) => a * b);
 }
 
-class Monkey {
-  final int id;
-  final Queue<int> items;
-  final int Function(int) operation;
-  final int divisibleBy;
-  final int throwToMonkeyIfTrue;
-  final int throwToMonkeyIfFalse;
+class Monkey({
+  required final int id,
+  required final Queue<int> items,
+  required final int Function(int) operation,
+  required final int divisibleBy,
+  required final int throwToMonkeyIfTrue,
+  required final int throwToMonkeyIfFalse,
+}) {
   int inspectedItemsCount = 0;
 
-  Monkey({
-    required this.id,
-    required this.items,
-    required this.operation,
-    required this.divisibleBy,
-    required this.throwToMonkeyIfTrue,
-    required this.throwToMonkeyIfFalse,
-  });
-
-  factory Monkey.parse(List<String> lines) {
-    int id = int.parse(RegExp(r'Monkey (\d+):').firstMatch(lines[0])![1]!);
-    Queue<int> items = Queue.of(
+  factory parse(List<String> lines) {
+    final id = int.parse(RegExp(r'Monkey (\d+):').firstMatch(lines[0])![1]!);
+    final items = Queue.of(
       lines[1].split(': ').last.split(', ').map(int.parse),
     );
-    int Function(int) operation = parseOperation(lines[2]);
-    int divisibleBy = int.parse(lines[3].split('by ').last);
-    int throwToMonkeyIfTrue = int.parse(lines[4].split('monkey ').last);
-    int throwToMonkeyIfFalse = int.parse(lines[5].split('monkey ').last);
+    final operation = parseOperation(lines[2]);
+    final divisibleBy = int.parse(lines[3].split('by ').last);
+    final throwToMonkeyIfTrue = int.parse(lines[4].split('monkey ').last);
+    final throwToMonkeyIfFalse = int.parse(lines[5].split('monkey ').last);
 
     return Monkey(
       id: id,

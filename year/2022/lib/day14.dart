@@ -1,16 +1,14 @@
 // --- Day 14: Regolith Reservoir ---
 // https://adventofcode.com/2022/day/14
 
-import 'dart:math';
-
 int solveA(Iterable<String> input) {
   // A point might be filled with either a rock or sand. In the beginning, we
   // only have rocks. Since we later need to only count the sand, we keep a
   // count of how many rocks there are so we can subtract that later.
-  final Set<Point<int>> filledPoints = parseRocks(input);
+  final Set<Point> filledPoints = parseRocks(input);
   final int numberOfRocks = filledPoints.length;
   final int bottomY = filledPoints.reduce((a, b) => a.y > b.y ? a : b).y;
-  const sandSpawnPoint = Point<int>(500, 0);
+  const sandSpawnPoint = Point(500, 0);
 
   outerLoop:
   while (true) {
@@ -42,12 +40,12 @@ int solveA(Iterable<String> input) {
 }
 
 int solveB(Iterable<String> input) {
-  final Set<Point<int>> filledPoints = parseRocks(input);
+  final Set<Point> filledPoints = parseRocks(input);
   final int numberOfRocks = filledPoints.length;
   final int bottomY = filledPoints.reduce((a, b) => a.y > b.y ? a : b).y + 2;
-  const sandSpawnPoint = Point<int>(500, 0);
+  const sandSpawnPoint = Point(500, 0);
 
-  bool isNotBlocked(Point<int> point) =>
+  bool isNotBlocked(Point point) =>
       !filledPoints.contains(point) && point.y < bottomY;
 
   outerLoop:
@@ -75,8 +73,8 @@ int solveB(Iterable<String> input) {
   return filledPoints.length - numberOfRocks;
 }
 
-Set<Point<int>> parseRocks(Iterable<String> input) {
-  final Set<Point<int>> rockPoints = {};
+Set<Point> parseRocks(Iterable<String> input) {
+  final Set<Point> rockPoints = {};
 
   for (final pathToDraw in input.map((e) => e.split(' -> ').map(parsePoint))) {
     int? prevX;
@@ -103,7 +101,7 @@ Set<Point<int>> parseRocks(Iterable<String> input) {
   return rockPoints;
 }
 
-Point<int> parsePoint(String l) => switch (l.split(',')) {
+Point parsePoint(String l) => switch (l.split(',')) {
   [final x, final y] => Point(int.parse(x), int.parse(y)),
   final unParseable => throw Exception('Could not parse: $unParseable'),
 };
@@ -112,8 +110,13 @@ List<int> generateSequence(int from, int to) => (from < to)
     ? [for (var i = from + 1; i < to; i++) i]
     : [for (var i = from - 1; i > to; i--) i];
 
-extension on Point<int> {
-  Point<int> get downOneStep => Point(x, y + 1);
-  Point<int> get oneStepDownAndToTheLeft => Point(x - 1, y + 1);
-  Point<int> get oneStepDownAndToTheRight => Point(x + 1, y + 1);
+extension type const Point._(({int x, int y}) p) {
+  const new(int x, int y) : this._((x: x, y: y));
+
+  int get x => p.x;
+  int get y => p.y;
+
+  Point get downOneStep => Point(x, y + 1);
+  Point get oneStepDownAndToTheLeft => Point(x - 1, y + 1);
+  Point get oneStepDownAndToTheRight => Point(x + 1, y + 1);
 }

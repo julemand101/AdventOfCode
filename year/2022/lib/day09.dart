@@ -1,14 +1,12 @@
 // --- Day 9: Rope Bridge ---
 // https://adventofcode.com/2022/day/9
 
-import 'dart:math';
-
 int solveA(Iterable<String> input) => solve(input, amountOfKnots: 2);
 int solveB(Iterable<String> input) => solve(input, amountOfKnots: 10);
 
 int solve(Iterable<String> input, {required int amountOfKnots}) {
-  final tailVisits = {const Point<int>(0, 0)};
-  final knots = List.filled(amountOfKnots, const Point<int>(0, 0));
+  final tailVisits = {const Point(0, 0)};
+  final knots = List.filled(amountOfKnots, const Point(0, 0));
 
   for (final line in input) {
     final List<String> parts = line.split(' ');
@@ -19,10 +17,10 @@ int solve(Iterable<String> input, {required int amountOfKnots}) {
       final oldHeadPoint = knots[0];
 
       knots[0] = switch (direction) {
-        'U' => Point<int>(oldHeadPoint.x, oldHeadPoint.y - 1),
-        'D' => Point<int>(oldHeadPoint.x, oldHeadPoint.y + 1),
-        'L' => Point<int>(oldHeadPoint.x - 1, oldHeadPoint.y),
-        'R' => Point<int>(oldHeadPoint.x + 1, oldHeadPoint.y),
+        'U' => Point(oldHeadPoint.x, oldHeadPoint.y - 1),
+        'D' => Point(oldHeadPoint.x, oldHeadPoint.y + 1),
+        'L' => Point(oldHeadPoint.x - 1, oldHeadPoint.y),
+        'R' => Point(oldHeadPoint.x + 1, oldHeadPoint.y),
         _ => throw 'Invalid instruction: $line',
       };
 
@@ -40,12 +38,17 @@ int solve(Iterable<String> input, {required int amountOfKnots}) {
   return tailVisits.length;
 }
 
-extension on Point<int> {
-  bool isTouching(Point<int> other) =>
+extension type const Point._(({int x, int y}) p) {
+  const new(int x, int y) : this._((x: x, y: y));
+
+  int get x => p.x;
+  int get y => p.y;
+
+  bool isTouching(Point other) =>
       [x - 1, x, x + 1].contains(other.x) &&
       [y - 1, y, y + 1].contains(other.y);
 
-  Point<int> pointTowards(Point<int> other) {
+  Point pointTowards(Point other) {
     if (isTouching(other)) {
       return this;
     }
@@ -65,7 +68,7 @@ extension on Point<int> {
     } else {
       for (final attemptX in [x - 1, x + 1]) {
         for (final attemptY in [y - 1, y + 1]) {
-          Point<int> attempt = Point<int>(attemptX, attemptY);
+          Point attempt = Point(attemptX, attemptY);
 
           if (attempt.isTouching(other)) {
             return attempt;

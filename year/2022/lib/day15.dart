@@ -1,8 +1,6 @@
 // --- Day 15: Beacon Exclusion Zone ---
 // https://adventofcode.com/2022/day/15
 
-import 'dart:math';
-
 int solveA(Iterable<String> input, {required int y}) {
   for (final (:sensorAtPoint, :closestBeaconPoint) in input.map(parseLine)) {
     final distance = sensorAtPoint.manhattanDistanceTo(closestBeaconPoint);
@@ -19,9 +17,7 @@ RegExp regExp = RegExp(
   r'Sensor at x=(.+), y=(.+): closest beacon is at x=(.*), y=(.*)',
 );
 
-({Point<int> sensorAtPoint, Point<int> closestBeaconPoint}) parseLine(
-  String line,
-) {
+({Point sensorAtPoint, Point closestBeaconPoint}) parseLine(String line) {
   final match = regExp.firstMatch(line)!;
 
   return (
@@ -30,7 +26,12 @@ RegExp regExp = RegExp(
   );
 }
 
-extension on Point<int> {
-  int manhattanDistanceTo(Point<int> otherPoint) =>
+extension type const Point._(({int x, int y}) p) {
+  const new(int x, int y) : this._((x: x, y: y));
+
+  int get x => p.x;
+  int get y => p.y;
+
+  int manhattanDistanceTo(Point otherPoint) =>
       (x - otherPoint.x).abs() + (y - otherPoint.y).abs();
 }

@@ -68,26 +68,16 @@ Map<String, AoCDirectory> makeAoCFileSystem(Iterable<String> input) {
   return previousDirectories;
 }
 
-abstract class AoCEntry {
-  final String path;
-
-  AoCEntry({required this.path});
-
+abstract class AoCEntry({required final String path}) {
   int get size;
 }
 
-class AoCDirectory extends AoCEntry {
+class AoCDirectory({required super.path}) extends AoCEntry {
   final List<AoCEntry> entries = [];
-
-  AoCDirectory({required super.path});
 
   @override
   late final int size = entries.fold<int>(0, (sum, b) => sum + b.size);
 }
 
-class AoCFile extends AoCEntry {
-  @override
-  final int size;
-
-  AoCFile({required super.path, required this.size});
-}
+class AoCFile({required super.path, @override required final int size})
+    extends AoCEntry;
