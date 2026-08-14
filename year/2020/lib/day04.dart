@@ -11,11 +11,11 @@ int solveB(Iterable<String> input) =>
         .where((passport) => passport.isValidPartTwo)
         .length;
 
-class Passport {
+class Passport(String line) {
   int? byr, iyr, eyr;
   String? hgt, hcl, ecl, pid, cid;
 
-  Passport(String line) {
+  this {
     for (final field in line.split(' ')) {
       final parts = field.split(':');
       final key = parts[0];

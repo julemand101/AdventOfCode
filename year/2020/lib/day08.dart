@@ -3,12 +3,7 @@
 
 enum Operation { acc, jmp, nop }
 
-class Instruction {
-  Operation operation;
-  final int argument;
-
-  Instruction(this.operation, this.argument);
-
+class Instruction(var Operation operation, final int argument) {
   static final _instructionRegExp = RegExp(
     r'(?<operation>acc|jmp|nop) (?<argument>[+-]\d+)',
   );
@@ -41,12 +36,7 @@ class Instruction {
   }
 }
 
-class Result {
-  final bool programTerminated;
-  final int accumulator;
-
-  const Result(this.accumulator, this.programTerminated);
-}
+typedef Result = ({bool programTerminated, int accumulator});
 
 int solveA(Iterable<String> input) =>
     run(input.map((line) => Instruction.parse(line)).toList(growable: false))
@@ -86,7 +76,7 @@ Result run(List<Instruction> program) {
 
   while (lineOfExecution >= 0 && lineOfExecution < program.length) {
     if (!visitedLines.add(lineOfExecution)) {
-      return Result(accumulator, false);
+      return (accumulator: accumulator, programTerminated: false);
     }
 
     final instruction = program[lineOfExecution];
@@ -105,5 +95,5 @@ Result run(List<Instruction> program) {
     }
   }
 
-  return Result(accumulator, true);
+  return (accumulator: accumulator, programTerminated: true);
 }

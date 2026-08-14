@@ -38,13 +38,13 @@ int solveB(Iterable<String> input) {
   return answer;
 }
 
-class Input {
+class Input.parse(Iterable<String> input) {
   final List<Rule> ticketFieldRules = [];
   final List<int> yourTicket = [];
   final List<List<int>> validNearbyTickets = [];
   final List<List<int>> invalidNearbyTickets = [];
 
-  Input.parse(Iterable<String> input) {
+  this {
     final iterator = input.iterator;
 
     // Parse rules for ticket fields

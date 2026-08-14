@@ -28,8 +28,8 @@ enum Direction {
   }
 }
 
-extension type Point._(({int x, int y}) p) {
-  factory(int x, int y) => Point._((x: x, y: y));
+extension type const Point._(({int x, int y}) p) {
+  const new(int x, int y) : this._((x: x, y: y));
 
   int get x => p.x;
 

@@ -16,15 +16,9 @@ int solveB(Iterable<String> input) => input
     )
     .reduce((a, b) => a + b);
 
-abstract class Token {
-  const Token();
-}
+abstract class const Token();
 
-class Value extends Token {
-  final int value;
-
-  const Value(this.value);
-
+class const Value(final int value) extends Token {
   @override
   String toString() => 'Value($value)';
 
@@ -34,11 +28,7 @@ class Value extends Token {
 
 enum Mode { addition, multiplication }
 
-class Operator extends Token {
-  final Mode mode;
-
-  const Operator(this.mode);
-
+class const Operator(final Mode mode) extends Token {
   @override
   String toString() => 'Operator($mode)';
 }

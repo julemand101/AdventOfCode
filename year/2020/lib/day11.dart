@@ -63,30 +63,31 @@ int solveB(Iterable<String> input) {
 
 enum SeatState { floor, empty, occupied }
 
-class Grid<T> {
-  final int length, height;
-  final List<T> list;
+class Grid<T>._(final int length, final int height, final List<T> list) {
+  new filled(int length, int height, T value)
+    : this._(
+        length,
+        height,
+        List.filled(length * height, value, growable: false),
+      );
 
-  Grid.filled(this.length, this.height, T value)
-    : list = List.filled(length * height, value, growable: false);
-  Grid.copy(Grid<T> grid)
-    : length = grid.length,
-      height = grid.height,
-      list = grid.list.toList(growable: false);
+  new copy(Grid<T> grid)
+    : this._(grid.length, grid.height, grid.list.toList(growable: false));
 
   T get(int x, int y) => list[_getPos(x, y)];
+
   void set(int x, int y, T value) => list[_getPos(x, y)] = value;
 
   int _getPos(int x, int y) => x + (y * length);
 }
 
 class SeatLayout extends Grid<SeatState> {
-  SeatLayout.filled(int length, int height)
+  new filled(int length, int height)
     : super.filled(length, height, SeatState.floor);
 
-  SeatLayout.copy(SeatLayout super.seatLayout) : super.copy();
+  new copy(SeatLayout super.seatLayout) : super.copy();
 
-  factory SeatLayout.parse(Iterable<String> lines) {
+  factory parse(Iterable<String> lines) {
     final List<List<SeatState>> seats = [];
 
     for (final line in lines) {

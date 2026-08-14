@@ -20,15 +20,11 @@ int solveA(Iterable<String> input) {
       .fold(1, (result, tile) => result * tile.tileId);
 }
 
-class Tile {
+class Tile(final int tileId, {required final Set<int> sides}) {
   // # = 35
   static const hashTagChar = 35;
 
-  final int tileId;
-  final Set<int> sides;
   final Set<Tile> neighbours = {};
-
-  Tile(this.tileId, {required this.sides});
 
   factory Tile.parse(List<String> input) {
     // Tile 2311:

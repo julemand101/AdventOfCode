@@ -1,8 +1,6 @@
 // --- Day 12: Rain Risk ---
 // https://adventofcode.com/2020/day/12
 
-import 'dart:math';
-
 const directionMap = {
   'N': Point(0, -1),
   'S': Point(0, 1),
@@ -12,12 +10,24 @@ const directionMap = {
 
 const facingMap = {0: 'E', 90: 'S', 180: 'W', 270: 'N'};
 
-Point<int> rotate(Point<int> point, int degrees) => (degrees % 360 == 0)
+extension type const Point._(({int x, int y}) p) {
+  const new(int x, int y) : this._((x: x, y: y));
+
+  int get x => p.x;
+
+  int get y => p.y;
+
+  Point operator +(Point other) => Point(x + other.x, y + other.y);
+
+  Point operator *(int factor) => Point(p.x * factor, p.y * factor);
+}
+
+Point rotate(Point point, int degrees) => (degrees % 360 == 0)
     ? point
     : rotate(Point(point.y * -1, point.x), (degrees % 360) - 90);
 
 int solveA(Iterable<String> input) {
-  var position = const Point(0, 0);
+  var position = Point(0, 0);
   var facing = 0;
 
   for (final line in input) {
@@ -41,8 +51,8 @@ int solveA(Iterable<String> input) {
 }
 
 int solveB(Iterable<String> input) {
-  var waypointPosition = const Point(10, -1);
-  var shipPosition = const Point(0, 0);
+  var waypointPosition = Point(10, -1);
+  var shipPosition = Point(0, 0);
 
   for (final line in input) {
     final action = line[0];

@@ -53,11 +53,7 @@ int solve(List<String> input, int dimensions) {
   return activeCubes.length;
 }
 
-class Point {
-  final List<int> dimensions;
-
-  const Point(this.dimensions);
-
+class const Point(final List<int> dimensions) {
   Iterable<Point> get neighbours =>
       combinations(dimensions.toList(growable: false))
           .where((point) => point != this);

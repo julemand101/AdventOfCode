@@ -96,7 +96,7 @@ class Robot {
 }
 
 extension type const Point._(({int x, int y}) _point) {
-  const Point(int x, int y) : this._((x: x, y: y));
+  const new(int x, int y) : this._((x: x, y: y));
 
   int get x => _point.x;
 

@@ -207,11 +207,11 @@ class Elf(super.map, super.x, super.y, super.attackPower) extends Character {
 //   \____|_|  |_|\__,_|
 //
 class Grid<T>._(final int length, final int height, final List<T> list) {
-  factory filled(int length, int height, T value) =>
-      ._(length, height, List.filled(length * height, value));
+  new filled(int length, int height, T value)
+    : this._(length, height, List.filled(length * height, value));
 
-  factory generate(int length, int height, T Function(int) generate) =>
-      ._(length, height, List.generate(length * height, generate));
+  new generate(int length, int height, T Function(int) generate)
+    : this._(length, height, List.generate(length * height, generate));
 
   T get(int x, int y) => list[_getPos(x, y)];
 
