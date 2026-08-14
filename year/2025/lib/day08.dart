@@ -3,11 +3,10 @@
 
 import 'dart:math';
 
-class Point {
-  final int x, y, z;
+class Point(final int x, final int y, final int z) {
   List<Point> circuit = [];
 
-  Point(this.x, this.y, this.z) {
+  this {
     circuit.add(this);
   }
 

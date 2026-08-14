@@ -9,11 +9,8 @@ const int letterM = 77;
 const int letterA = 65;
 const int letterS = 83;
 
-class Grid {
-  final int length, height;
-  final Uint8List _list;
-
-  Grid(this.length, this.height) : _list = Uint8List(length * height);
+class Grid(final int length, final int height) {
+  final Uint8List _list = Uint8List(length * height);
 
   int? get(int x, int y) => (x >= 0 && x < length && y >= 0 && y < height)
       ? _list[_getPos(x, y)]

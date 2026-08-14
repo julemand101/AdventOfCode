@@ -55,16 +55,12 @@ extension type const Point._(({int x, int y}) _point) {
   int get y => _point.y;
 
   Point operator +(Point other) => Point(x + other.x, y + other.y);
-
   Point operator -(Point other) => Point(x - other.x, y - other.y);
 }
 
-class Grid {
-  final int length, height;
-  final Uint8List _list;
+class Grid(final int length, final int height) {
+  final Uint8List _list = Uint8List(length * height);
   final List<Point> zeroPositions = [];
-
-  Grid(this.length, this.height) : _list = Uint8List(length * height);
 
   int getByPoint(Point p) => get(p.x, p.y);
   int get(int x, int y) => _list[_getPos(x, y)];

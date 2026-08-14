@@ -223,7 +223,6 @@ extension type const Point._(({int x, int y}) _point) {
   int get y => _point.y;
 
   Point operator +(Point other) => Point(x + other.x, y + other.y);
-
   Point operator -(Point other) => Point(x - other.x, y - other.y);
 }
 

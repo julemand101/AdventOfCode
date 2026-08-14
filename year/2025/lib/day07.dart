@@ -7,9 +7,7 @@ typedef Point = (int, int);
 
 extension on Point {
   Point get down => ($1, $2 + 1);
-
   Point get left => ($1 - 1, $2);
-
   Point get right => ($1 + 1, $2);
 }
 

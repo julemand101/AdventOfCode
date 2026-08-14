@@ -114,15 +114,13 @@ extension type const Point._(({int x, int y}) _point) {
   int get y => _point.y;
 
   Point operator +(Point other) => Point(x + other.x, y + other.y);
-
   Point operator -(Point other) => Point(x - other.x, y - other.y);
 }
 
 extension type const Fence._((Point, Point) _fence) {
-  const Fence(Point p1, Point p2) : this._((p1, p2));
+  const new(Point p1, Point p2) : this._((p1, p2));
 
   Fence operator +(Point other) => Fence(_fence.$1 + other, _fence.$2 + other);
-
   Fence operator -(Point other) => Fence(_fence.$1 - other, _fence.$2 - other);
 }
 
@@ -130,7 +128,7 @@ class Grid {
   final int length, height;
   final Uint8List _list;
 
-  Grid(List<String> input)
+  new(List<String> input)
     : length = input.first.length,
       height = input.length,
       _list = Uint8List((input.length * input.first.length)) {

@@ -39,21 +39,12 @@ int solveA(String input) {
   return disk.whereType<int>().indexed.map((e) => e.$1 * e.$2).sum;
 }
 
-sealed class Block extends LinkedListEntry<Block> {
-  int length;
+sealed class Block({required var int length}) extends LinkedListEntry<Block>;
 
-  Block({required this.length});
-}
+final class DataBlock({required var int id, required super.length})
+    extends Block;
 
-final class DataBlock extends Block {
-  int id;
-
-  DataBlock({required this.id, required super.length});
-}
-
-final class FreeBlock extends Block {
-  FreeBlock({required super.length});
-}
+final class FreeBlock({required super.length}) extends Block;
 
 int solveB(String input) {
   final disk = LinkedList<Block>();

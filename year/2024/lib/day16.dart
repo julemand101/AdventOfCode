@@ -11,19 +11,14 @@ const charEmpty = 46; // .
 const charStart = 83; // S
 const charEnd = 69; //   E
 
-enum Direction {
+enum Direction(final Point delta) {
   north(Point(0, -1)),
   east(Point(1, 0)),
   south(Point(0, 1)),
   west(Point(-1, 0));
 
-  final Point delta;
-
   Direction get left => Direction.values[(index - 1) % 4];
-
   Direction get right => Direction.values[(index + 1) % 4];
-
-  const Direction(this.delta);
 }
 
 int solveA(List<String> input) {

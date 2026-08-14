@@ -75,13 +75,8 @@ String printGrid(List<Robot> robots, int wide, int tall) {
 // p=0,4 v=3,-3
 final robotRegExp = RegExp(r'p=(.*),(.*) v=(.*),(.*)');
 
-class Robot {
-  Point position;
-  final Point velocity;
-
-  Robot._({required this.position, required this.velocity});
-
-  factory Robot(String line) {
+class Robot._({required var Point position, required final Point velocity}) {
+  factory(String line) {
     final match = robotRegExp.firstMatch(line)!;
 
     return Robot._(
@@ -99,21 +94,15 @@ extension type const Point._(({int x, int y}) _point) {
   const new(int x, int y) : this._((x: x, y: y));
 
   int get x => _point.x;
-
   int get y => _point.y;
 
   Point operator +(Point other) => Point(x + other.x, y + other.y);
-
   Point operator -(Point other) => Point(x - other.x, y - other.y);
-
   Point operator %(Point other) => Point(x % other.x, y % other.y);
 }
 
-class Grid {
-  final int length, height;
-  final Uint8List _list;
-
-  Grid(this.length, this.height) : _list = Uint8List(length * height);
+class Grid(final int length, final int height) {
+  final Uint8List _list = Uint8List(length * height);
 
   void setRobot(Robot robot) =>
       _list[_getPos(robot.position.x, robot.position.y)] += 1;
