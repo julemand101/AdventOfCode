@@ -154,5 +154,5 @@ enum TypeOfHand(final int value) {
   threeOfAKind(4),
   twoPair(3),
   onePair(2),
-  highCard(1);
+  highCard(1),
 }
