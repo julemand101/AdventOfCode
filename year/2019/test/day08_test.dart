@@ -11,7 +11,7 @@ void main() {
   group('Part One', () {
     test('Solution', () {
       expect(solveA(input), equals(1950));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
@@ -25,6 +25,6 @@ void main() {
 █    █ █  █  █ █  █ █    
 █    █  █ █  █ █  █ ████ '''),
       );
-    });
+    }, tags: 'data');
   });
 }

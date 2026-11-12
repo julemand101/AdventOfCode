@@ -20,7 +20,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(298));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -28,6 +28,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(158));
-    });
+    }, tags: 'data');
   });
 }

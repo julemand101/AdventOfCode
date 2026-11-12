@@ -23,12 +23,12 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(664));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(1447));
-    });
+    }, tags: 'data');
   });
 }

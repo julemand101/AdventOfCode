@@ -39,6 +39,6 @@ void main() {
     });
     test('Solution', () {
       expect(solve(input), equals(4230));
-    });
+    }, tags: 'data');
   });
 }

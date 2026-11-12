@@ -76,7 +76,7 @@ void main() {
  ###    ######  #       ######  #        ###    #    #  #    #
 '''),
       );
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -85,6 +85,6 @@ void main() {
     });
     test('Solution', () {
       expect(solve(input).seconds, equals(10595));
-    });
+    }, tags: 'data');
   });
 }

@@ -29,13 +29,13 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(416));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
       expect(
         solveB(const [
-          'acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf',
+          r'acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf',
         ]),
         equals(5353),
       );
@@ -45,6 +45,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(1043697));
-    });
+    }, tags: 'data');
   });
 }

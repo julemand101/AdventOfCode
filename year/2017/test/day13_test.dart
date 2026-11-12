@@ -23,7 +23,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(2160));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -32,7 +32,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(3907470));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two - with isolates', () {
@@ -43,6 +43,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveBWithIsolates(input, chunkSize), completion(equals(3907470)));
-    });
+    }, tags: 'data');
   });
 }

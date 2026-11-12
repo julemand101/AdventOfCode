@@ -23,7 +23,7 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
     });
     test('Solution', () {
       expect(solve(input), equals(16824));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
@@ -35,6 +35,6 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
         ),
         equals(3543984),
       );
-    });
+    }, tags: 'data');
   });
 }

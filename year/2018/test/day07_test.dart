@@ -26,7 +26,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals('GKPTSLUXBIJMNCADFOVHEWYQRZ'));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -35,6 +35,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input, 5, 60), equals(920));
-    });
+    }, tags: 'data');
   });
 }

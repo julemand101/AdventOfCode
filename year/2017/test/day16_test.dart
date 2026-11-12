@@ -19,7 +19,7 @@ void main() {
         solveA(programCount: 16, danceMoves: input),
         equals(r'dcmlhejnifpokgba'),
       );
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -46,6 +46,6 @@ void main() {
         solveB(programCount: 16, danceMoves: input, times: 1000000000),
         equals(r'ifocbejpdnklamhg'),
       );
-    });
+    }, tags: 'data');
   });
 }

@@ -11,11 +11,11 @@ void main() {
   group('Part One', () {
     test('Solution', () {
       expect(solveA(input), equals(7839346));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(447803));
-    });
+    }, tags: 'data');
   });
 }

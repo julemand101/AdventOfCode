@@ -24,7 +24,7 @@ Dublin to Belfast = 141
     });
     test('Solution', () {
       expect(solveA(input), equals(117));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -42,6 +42,6 @@ Dublin to Belfast = 141
     });
     test('Solution', () {
       expect(solveB(input), equals(909));
-    });
+    }, tags: 'data');
   });
 }

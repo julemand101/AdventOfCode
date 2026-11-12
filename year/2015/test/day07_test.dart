@@ -38,7 +38,7 @@ NOT y -> i
     });
     test('Solution', () {
       expect(solveA(input)['a'], equals(3176));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
@@ -46,6 +46,6 @@ NOT y -> i
         solveB(input, overrideWireB: solveA(input)['a']!)['a'],
         equals(14710),
       );
-    });
+    }, tags: 'data');
   });
 }

@@ -31,6 +31,6 @@ iii: out
     });
     test('Solution', () {
       expect(solveA(input), equals(615));
-    });
+    }, tags: 'data');
   });
 }

@@ -33,6 +33,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input, y: 2000000), equals(-1));
-    });
+    }, tags: 'data');
   }, skip: true);
 }

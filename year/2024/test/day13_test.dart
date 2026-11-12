@@ -88,7 +88,7 @@ Prize: X=18641, Y=10279
     });
     test('Solution', () {
       expect(solveA(input), equals(36571));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -145,6 +145,6 @@ Prize: X=18641, Y=10279
     });
     test('Solution', () {
       expect(solveB(input), equals(85527711500010));
-    });
+    }, tags: 'data');
   });
 }

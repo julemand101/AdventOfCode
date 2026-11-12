@@ -14,9 +14,9 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(14340));
-    });
+    }, tags: 'data');
   });
-  group('Part One', () {
+  group('Part Two', () {
     test('Example 1', () {
       expect(
         solveB(example),
@@ -42,7 +42,7 @@ void main() {
 ##        ##    ##  ##          ####      ####    ######    ##    ##  ##        
 '''),
       );
-    });
+    }, tags: 'data');
   });
 }
 

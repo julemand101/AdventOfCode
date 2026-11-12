@@ -51,14 +51,19 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(510109797));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
       expect(solveB(exampleInput), equals(46));
     });
-    test('Solution', () {
-      expect(solveB(input), equals(9622622));
-    }, skip: true);
+    test(
+      'Solution',
+      () {
+        expect(solveB(input), equals(9622622));
+      },
+      tags: 'data',
+      skip: true,
+    );
   });
 }

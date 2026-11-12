@@ -128,6 +128,6 @@ Tile 3079:
     });
     test('Solution', () {
       expect(solveA(input), equals(29125888761511));
-    });
+    }, tags: 'data');
   });
 }

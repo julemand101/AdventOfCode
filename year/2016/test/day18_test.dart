@@ -17,11 +17,11 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input, rows: 40), equals(1961));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveA(input, rows: 400000), equals(20000795));
-    });
+    }, tags: 'data');
   });
 }

@@ -33,11 +33,11 @@ nearby tickets:
     });
     test('Solution', () {
       expect(solveA(input), equals(25984));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(1265347500049));
-    });
+    }, tags: 'data');
   });
 }

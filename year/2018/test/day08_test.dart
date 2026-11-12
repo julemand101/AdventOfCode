@@ -17,7 +17,7 @@ void main() {
 
     test('Solution', () {
       expect(solveA(input), equals(42146));
-    });
+    }, tags: 'data');
   });
 
   group('Part One', () {
@@ -27,6 +27,6 @@ void main() {
 
     test('Solution', () {
       expect(solveB(input), equals(26753));
-    });
+    }, tags: 'data');
   });
 }

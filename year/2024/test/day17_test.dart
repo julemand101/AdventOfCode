@@ -26,7 +26,7 @@ Program: 0,1,5,4,3,0
     });
     test('Solution', () {
       expect(solveA(input), equals('7,4,2,5,1,4,6,0,4'));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -46,6 +46,6 @@ Program: 0,3,5,4,3,0
     });
     test('Solution', () {
       expect(solveB(input), equals(-1));
-    });
+    }, tags: 'data');
   }, skip: true);
 }

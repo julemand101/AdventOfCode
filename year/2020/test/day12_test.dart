@@ -24,7 +24,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(364));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 2', () {
@@ -32,6 +32,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(39518));
-    });
+    }, tags: 'data');
   });
 }

@@ -1,3 +1,10 @@
+tags:
+ # Test require input data from the data/ directory. This directory contains
+ # content that is not allowed to be shared public according to the owner of
+ # Advent of Code and the files are therefore in a private repository. This
+ # tag is made so such tests can be skipped to test the project without data/.
+ data:
+
 paths:
  - year/2015
  - year/2016

@@ -23,7 +23,7 @@ p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>
     });
     test('Solution', () {
       expect(solveA(input), equals(170));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -43,6 +43,6 @@ p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>
     });
     test('Solution', () {
       expect(solveB(input), equals(571));
-    });
+    }, tags: 'data');
   });
 }

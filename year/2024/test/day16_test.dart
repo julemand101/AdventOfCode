@@ -63,6 +63,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(93436));
-    });
+    }, tags: 'data');
   });
 }

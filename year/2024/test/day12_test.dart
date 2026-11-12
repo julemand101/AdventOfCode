@@ -60,7 +60,7 @@ MMMISSJEEE
     });
     test('Solution', () {
       expect(solveA(input), equals(1387004));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -145,6 +145,6 @@ MMMISSJEEE
     });
     test('Solution', () {
       expect(solveB(input), equals(844198));
-    });
+    }, tags: 'data');
   });
 }

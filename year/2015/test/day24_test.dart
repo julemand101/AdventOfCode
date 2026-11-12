@@ -29,7 +29,7 @@ void main() {
     });
     test('Solution', () {
       expect(solve(input, groups: 3), equals(10439961859));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -37,6 +37,6 @@ void main() {
     });
     test('Solution', () {
       expect(solve(input, groups: 4), equals(72050269));
-    });
+    }, tags: 'data');
   });
 }

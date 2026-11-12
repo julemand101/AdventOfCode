@@ -7,18 +7,6 @@ import 'package:advent_of_code_2018/day02.dart';
 
 final input = getInput(2018, 02).readAsLinesSync();
 
-final example =
-    r'''
-abcde
-fghij
-klmno
-pqrst
-fguij
-axcye
-wvxyz
-'''
-        .asLinesList;
-
 void main() {
   group('Part One', () {
     test('Example 1', () {
@@ -40,7 +28,7 @@ ababab
     });
     test('Solution', () {
       expect(solveA(input), equals(8118));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -63,6 +51,6 @@ wvxyz
     });
     test('Solution', () {
       expect(solveB(input), equals(r'jbbenqtlaxhivmwyscjukztdp'));
-    });
+    }, tags: 'data');
   });
 }

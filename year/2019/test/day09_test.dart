@@ -35,11 +35,11 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(2453265701));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(80805));
-    });
+    }, tags: 'data');
   });
 }

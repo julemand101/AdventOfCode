@@ -23,7 +23,7 @@ Distance:  9  40  200
     });
     test('Solution', () {
       expect(solveA(input), equals(293046));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -40,6 +40,6 @@ Distance:  9  40  200
     });
     test('Solution', () {
       expect(solveB(input), equals(35150181));
-    });
+    }, tags: 'data');
   });
 }

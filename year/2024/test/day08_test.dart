@@ -33,7 +33,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(423));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -80,6 +80,6 @@ T.........
     });
     test('Solution', () {
       expect(solveB(input), equals(1287));
-    });
+    }, tags: 'data');
   });
 }

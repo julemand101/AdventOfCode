@@ -34,7 +34,7 @@ iyr:2011 ecl:brn hgt:59in
     });
     test('Solution', () {
       expect(solveA(input), equals(247));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -84,6 +84,6 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719
     });
     test('Solution', () {
       expect(solveB(input), equals(145));
-    });
+    }, tags: 'data');
   });
 }

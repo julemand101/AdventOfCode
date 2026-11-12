@@ -85,7 +85,7 @@ aaaabbb
     });
     test('Solution', () {
       expect(solveA(input), equals(160));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1a', () {
@@ -96,6 +96,6 @@ aaaabbb
     });
     test('Solution', () {
       expect(solveB(input), equals(357));
-    });
+    }, tags: 'data');
   });
 }

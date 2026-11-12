@@ -32,7 +32,7 @@ K)L
     });
     test('Solution', () {
       expect(solveA(input), equals(253104));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -60,6 +60,6 @@ I)SAN
     });
     test('Solution', () {
       expect(solveB(input), equals(499));
-    });
+    }, tags: 'data');
   });
 }

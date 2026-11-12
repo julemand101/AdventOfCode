@@ -24,11 +24,11 @@ After:  [3, 2, 2, 1]
     });
     test('Solution', () {
       expect(solveA(input), equals(567));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(610));
-    });
+    }, tags: 'data');
   });
 }

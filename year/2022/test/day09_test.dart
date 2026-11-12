@@ -27,7 +27,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(6503));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -53,6 +53,6 @@ U 20
     });
     test('Solution', () {
       expect(solveB(input), equals(2724));
-    });
+    }, tags: 'data');
   });
 }

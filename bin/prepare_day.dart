@@ -73,7 +73,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(-1));
-    });
+    }, tags: 'data');
   });
 }
 ''');

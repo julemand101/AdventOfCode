@@ -20,11 +20,11 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(boss: (hitPoints: 104, damage: 8, armor: 1)), equals(78));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(boss: (hitPoints: 104, damage: 8, armor: 1)), equals(148));
-    });
+    }, tags: 'data');
   });
 }

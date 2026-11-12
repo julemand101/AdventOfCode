@@ -30,11 +30,11 @@ rotate based on position of letter d
     });
     test('Solution', () {
       expect(solveA(input, scrambleInput: r'abcdefgh'), equals(r'bfheacgd'));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input, scrambleInput: r'fbgdceah'), equals(r'gcehdbfa'));
-    });
+    }, tags: 'data');
   });
 }

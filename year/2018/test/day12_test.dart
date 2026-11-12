@@ -35,12 +35,12 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(2840));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(2000000001684));
-    });
+    }, tags: 'data');
   });
 }

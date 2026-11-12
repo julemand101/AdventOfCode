@@ -31,7 +31,7 @@ jgz a -2
     });
     test('Solution', () {
       expect(solveA(input), equals(4601));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -54,6 +54,6 @@ rcv d
     });
     test('Solution', () {
       expect(solveB(input), equals(6858));
-    });
+    }, tags: 'data');
   });
 }

@@ -25,7 +25,7 @@ void main() {
     });
     test('Solution', () {
       expect(solve(input, steps: 100, partB: false), equals(768));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -33,6 +33,6 @@ void main() {
     });
     test('Solution', () {
       expect(solve(input, steps: 100, partB: true), equals(781));
-    });
+    }, tags: 'data');
   });
 }

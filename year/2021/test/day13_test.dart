@@ -40,7 +40,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(693));
-    });
+    }, tags: 'data');
   });
   group('Part One', () {
     test('Solution', () {
@@ -55,6 +55,6 @@ void main() {
  ██   ██  ████ ████ █  █ █  █ ████  ██ 
 '''),
       );
-    });
+    }, tags: 'data');
   });
 }

@@ -25,7 +25,7 @@ Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.
     });
     test('Solution', () {
       expect(solve(input, seconds: 2503, partB: false), equals(2655));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -44,6 +44,6 @@ Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.
     });
     test('Solution', () {
       expect(solve(input, seconds: 2503, partB: true), equals(1059));
-    });
+    }, tags: 'data');
   });
 }

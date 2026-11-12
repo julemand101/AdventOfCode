@@ -25,7 +25,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(r'ITSZCJNMUO'));
-    });
+    }, tags: 'data');
   });
 
   group('Part One', () {
@@ -34,6 +34,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(17420));
-    });
+    }, tags: 'data');
   });
 }

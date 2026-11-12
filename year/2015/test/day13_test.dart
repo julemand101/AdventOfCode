@@ -34,11 +34,11 @@ David would gain 41 happiness units by sitting next to Carol.
     });
     test('Solution', () {
       expect(solve(input, partB: false), equals(618));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solve(input, partB: true), equals(601));
-    });
+    }, tags: 'data');
   });
 }

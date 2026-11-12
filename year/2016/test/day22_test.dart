@@ -11,6 +11,6 @@ void main() {
   group('Part One', () {
     test('Solution', () {
       expect(solveA(input), equals(872));
-    });
+    }, tags: 'data');
   });
 }

@@ -14,11 +14,11 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(869));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(1544));
-    });
+    }, tags: 'data');
   });
 }

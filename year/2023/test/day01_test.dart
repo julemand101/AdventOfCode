@@ -12,7 +12,7 @@ void main() {
     test('Example 1', () {
       expect(
         solveA(
-          '''
+          r'''
 1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
@@ -25,13 +25,13 @@ treb7uchet
     });
     test('Solution', () {
       expect(solveA(input), equals(53974));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
       expect(
         solveB(
-          '''
+          r'''
 two1nine
 eightwothree
 abcone2threexyz
@@ -47,6 +47,6 @@ zoneight234
     });
     test('Solution', () {
       expect(solveB(input), equals(52840));
-    });
+    }, tags: 'data');
   });
 }

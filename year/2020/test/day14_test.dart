@@ -12,32 +12,32 @@ void main() {
     test('Example 1', () {
       expect(
         solveA(const [
-          'mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X',
-          'mem[8] = 11',
-          'mem[7] = 101',
-          'mem[8] = 0]',
+          r'mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X',
+          r'mem[8] = 11',
+          r'mem[7] = 101',
+          r'mem[8] = 0]',
         ]),
         equals(165),
       );
     });
     test('Solution', () {
       expect(solveA(input), equals(14722016054794));
-    });
+    }, tags: 'data');
   });
   group('Part One', () {
     test('Example 1', () {
       expect(
         solveB(const [
-          'mask = 000000000000000000000000000000X1001X',
-          'mem[42] = 100',
-          'mask = 00000000000000000000000000000000X0XX',
-          'mem[26] = 1',
+          r'mask = 000000000000000000000000000000X1001X',
+          r'mem[42] = 100',
+          r'mask = 00000000000000000000000000000000X0XX',
+          r'mem[26] = 1',
         ]),
         equals(208),
       );
     });
     test('Solution', () {
       expect(solveB(input), equals(3618217244644));
-    });
+    }, tags: 'data');
   });
 }

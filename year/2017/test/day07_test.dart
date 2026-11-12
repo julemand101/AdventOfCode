@@ -32,7 +32,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(r'azqje'));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
@@ -41,6 +41,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(646));
-    });
+    }, tags: 'data');
   });
 }

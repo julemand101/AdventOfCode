@@ -57,7 +57,7 @@ on x=967..23432,y=45373..81175,z=27513..53682
     });
     test('Solution', () {
       expect(solveA(input), equals(588200));
-    });
+    }, tags: 'data');
   }, skip: true);
   group('Part Two', () {
     test('Example 1', () {
@@ -132,6 +132,6 @@ off x=-93533..-4276,y=-16170..68771,z=-104985..-24507
     });
     test('Solution', () {
       expect(solveB(input), equals(-1));
-    });
+    }, tags: 'data');
   }, skip: true);
 }

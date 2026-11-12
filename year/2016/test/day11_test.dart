@@ -25,7 +25,7 @@ The fourth floor contains nothing relevant.
     });
     test('Solution', () {
       expect(solve(input), equals(47));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
@@ -41,6 +41,6 @@ The fourth floor contains nothing relevant.
         ),
         equals(-1),
       );
-    });
+    }, tags: 'data');
   }, skip: true);
 }

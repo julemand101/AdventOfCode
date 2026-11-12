@@ -24,7 +24,7 @@ Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3
     });
     test('Solution', () {
       expect(solve(input, partB: false), equals(21367368));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -42,6 +42,6 @@ Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3
     });
     test('Solution', () {
       expect(solve(input, partB: true), equals(1766400));
-    });
+    }, tags: 'data');
   });
 }

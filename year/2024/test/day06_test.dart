@@ -31,7 +31,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(4696));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () async {
@@ -56,6 +56,6 @@ void main() {
     });
     test('Solution', () async {
       expect(await solveB(input), equals(1443));
-    });
+    }, tags: 'data');
   });
 }

@@ -34,7 +34,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input, burstsOfActivity: 10000), equals(5433));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -45,6 +45,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input, burstsOfActivity: 10000000), equals(2512599));
-    });
+    }, tags: 'data');
   });
 }

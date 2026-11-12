@@ -10,42 +10,42 @@ final input = getInput(2022, 06).readAsStringSync();
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(solveA('mjqjpqmgbljsphdztnvjfqwrcgsmlb'), equals(7));
+      expect(solveA(r'mjqjpqmgbljsphdztnvjfqwrcgsmlb'), equals(7));
     });
     test('Example 2', () {
-      expect(solveA('bvwbjplbgvbhsrlpgdmjqwftvncz'), equals(5));
+      expect(solveA(r'bvwbjplbgvbhsrlpgdmjqwftvncz'), equals(5));
     });
     test('Example 3', () {
-      expect(solveA('nppdvjthqldpwncqszvftbrmjlhg'), equals(6));
+      expect(solveA(r'nppdvjthqldpwncqszvftbrmjlhg'), equals(6));
     });
     test('Example 4', () {
-      expect(solveA('nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg'), equals(10));
+      expect(solveA(r'nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg'), equals(10));
     });
     test('Example 5', () {
-      expect(solveA('zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw'), equals(11));
+      expect(solveA(r'zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw'), equals(11));
     });
     test('Solution', () {
       expect(solveA(input), equals(1779));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(solveB('mjqjpqmgbljsphdztnvjfqwrcgsmlb'), equals(19));
+      expect(solveB(r'mjqjpqmgbljsphdztnvjfqwrcgsmlb'), equals(19));
     });
     test('Example 2', () {
-      expect(solveB('bvwbjplbgvbhsrlpgdmjqwftvncz'), equals(23));
+      expect(solveB(r'bvwbjplbgvbhsrlpgdmjqwftvncz'), equals(23));
     });
     test('Example 3', () {
-      expect(solveB('nppdvjthqldpwncqszvftbrmjlhg'), equals(23));
+      expect(solveB(r'nppdvjthqldpwncqszvftbrmjlhg'), equals(23));
     });
     test('Example 4', () {
-      expect(solveB('nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg'), equals(29));
+      expect(solveB(r'nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg'), equals(29));
     });
     test('Example 5', () {
-      expect(solveB('zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw'), equals(26));
+      expect(solveB(r'zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw'), equals(26));
     });
     test('Solution', () {
       expect(solveB(input), equals(2635));
-    });
+    }, tags: 'data');
   });
 }

@@ -14,7 +14,7 @@ void main() {
         solve(bossHitPoints: 58, bossDamage: 9, hardMode: false),
         equals(1269),
       );
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
@@ -22,6 +22,6 @@ void main() {
         solve(bossHitPoints: 58, bossDamage: 9, hardMode: true),
         equals(1309),
       );
-    });
+    }, tags: 'data');
   });
 }

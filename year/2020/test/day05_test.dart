@@ -10,24 +10,24 @@ final input = getInput(2020, 05).readAsLinesSync();
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(solveA(const ['FBFBBFFRLR']), equals(357));
+      expect(solveA(const [r'FBFBBFFRLR']), equals(357));
     });
     test('Example 2', () {
-      expect(solveA(const ['BFFFBBFRRR']), equals(567));
+      expect(solveA(const [r'BFFFBBFRRR']), equals(567));
     });
     test('Example 3', () {
-      expect(solveA(const ['FFFBBBFRRR']), equals(119));
+      expect(solveA(const [r'FFFBBBFRRR']), equals(119));
     });
     test('Example 4', () {
-      expect(solveA(const ['BBFFBBFRLL']), equals(820));
+      expect(solveA(const [r'BBFFBBFRLL']), equals(820));
     });
     test('Solution', () {
       expect(solveA(input), equals(996));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(671));
-    });
+    }, tags: 'data');
   });
 }

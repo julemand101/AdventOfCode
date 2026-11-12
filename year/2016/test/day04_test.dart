@@ -25,7 +25,7 @@ totally-real-room-200[decoy]
     });
     test('Solution', () {
       expect(solveA(input), equals(409147));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -36,6 +36,6 @@ totally-real-room-200[decoy]
     });
     test('Solution', () {
       expect(solveB(input), equals(991));
-    });
+    }, tags: 'data');
   });
 }

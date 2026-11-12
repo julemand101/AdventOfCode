@@ -25,11 +25,11 @@ inc a
     });
     test('Solution', () {
       expect(solve(input).b, equals(307));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solve(input, registerA: 1).b, equals(160));
-    });
+    }, tags: 'data');
   });
 }

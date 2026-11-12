@@ -94,7 +94,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(582));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -167,6 +167,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(1302));
-    });
+    }, tags: 'data');
   });
 }

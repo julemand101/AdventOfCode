@@ -31,7 +31,7 @@ MXMXAXMASX
     });
     test('Solution', () {
       expect(solveA(input), equals(2685));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -56,6 +56,6 @@ MXMXAXMASX
     });
     test('Solution', () {
       expect(solveB(input), equals(2048));
-    });
+    }, tags: 'data');
   });
 }

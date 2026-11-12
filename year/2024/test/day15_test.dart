@@ -62,7 +62,7 @@ v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^
     });
     test('Solution', () {
       expect(solveA(input), equals(1451928));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -98,6 +98,6 @@ v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^
     });
     test('Solution', () {
       expect(solveB(input), equals(1462788));
-    });
+    }, tags: 'data');
   });
 }

@@ -27,7 +27,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(4749838800));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -35,6 +35,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(-1));
-    });
+    }, tags: 'data');
   }, skip: true);
 }

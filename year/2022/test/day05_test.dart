@@ -24,18 +24,18 @@ move 1 from 1 to 2
 void main() {
   group('Part One', () {
     test('Example 1', () {
-      expect(solveA(example), equals('CMZ'));
+      expect(solveA(example), equals(r'CMZ'));
     });
     test('Solution', () {
-      expect(solveA(input), equals('LJSVLTWQM'));
-    });
+      expect(solveA(input), equals(r'LJSVLTWQM'));
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
-      expect(solveB(example), equals('MCD'));
+      expect(solveB(example), equals(r'MCD'));
     });
     test('Solution', () {
-      expect(solveB(input), equals('BRQWDBBJM'));
-    });
+      expect(solveB(input), equals(r'BRQWDBBJM'));
+    }, tags: 'data');
   });
 }

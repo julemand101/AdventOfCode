@@ -24,12 +24,12 @@ void main() {
     });
     test('Solution', () {
       expect(solve(input, iterations: 5), equals(150));
-    });
+    }, tags: 'data');
   });
 
   group('Part Two', () {
     test('Solution', () {
       expect(solve(input, iterations: 18), equals(2606275));
-    });
+    }, tags: 'data');
   });
 }

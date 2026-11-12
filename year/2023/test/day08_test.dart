@@ -45,7 +45,7 @@ ZZZ = (ZZZ, ZZZ)
     });
     test('Solution', () {
       expect(solveA(input), equals(19631));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -70,6 +70,6 @@ XXX = (XXX, XXX)
     });
     test('Solution', () {
       expect(solveB(input), equals(21003205388413));
-    });
+    }, tags: 'data');
   });
 }

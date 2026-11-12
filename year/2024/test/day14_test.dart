@@ -35,11 +35,11 @@ p=9,5 v=-3,-3
     });
     test('Solution', () {
       expect(solveA(input), equals(226236192));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(8168));
-    });
+    }, tags: 'data');
   });
 }

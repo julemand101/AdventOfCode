@@ -19,7 +19,7 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(19605500130));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -27,6 +27,6 @@ void main() {
     });
     test('Solution', () {
       expect(solveB(input), equals(36862281418));
-    });
+    }, tags: 'data');
   });
 }

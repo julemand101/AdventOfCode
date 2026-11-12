@@ -33,11 +33,11 @@ value 2 goes to bot 2
       // Based on your instructions, what is the number of the bot that is
       // responsible for comparing value-61 microchips with value-17 microchips?
       expect(solveA(input, valueA: 61, valueB: 17), equals(47));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input, valueA: 61, valueB: 17), equals(2666));
-    });
+    }, tags: 'data');
   });
 }

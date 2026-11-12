@@ -23,11 +23,11 @@ void main() {
     });
     test('Solution', () {
       expect(solveA(input), equals(193607));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Solution', () {
       expect(solveB(input), equals(229557103025807));
-    });
+    }, tags: 'data');
   });
 }

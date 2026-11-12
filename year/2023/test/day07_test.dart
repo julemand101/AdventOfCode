@@ -26,7 +26,7 @@ QQQJA 483
     });
     test('Solution', () {
       expect(solveA(input), equals(241344943));
-    });
+    }, tags: 'data');
   });
   group('Part Two', () {
     test('Example 1', () {
@@ -46,6 +46,6 @@ QQQJA 483
     });
     test('Solution', () {
       expect(solveB(input), equals(243101568));
-    });
+    }, tags: 'data');
   });
 }
