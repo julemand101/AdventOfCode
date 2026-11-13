@@ -16,6 +16,7 @@ workspace:
  - year/2023
  - year/2024
  - year/2025
+ - year/2026
 
 dependencies:
   any_base: ^2.0.0
